@@ -1,0 +1,28 @@
+page-post {
+  .list-ios .item-block .item-inner, .list-md .item-block .item-inner,
+  .list-ios > .item-block:last-child,
+  .list-ios > .item-wrapper:last-child .item-block {
+    border-bottom: 0px;
+  }
+
+  .searchbar-md{
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .searchbar-md .searchbar-input{
+    border-radius: 6px;
+    height: 30px;
+    box-shadow: none;
+    font-size: 1.5rem;
+  }
+
+  .searchbar-md .searchbar-search-icon{
+    top: 6px;
+  }
+
+  .item-md ion-thumbnail ion-img, .item-md ion-thumbnail img,
+  .item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img{
+    margin: auto;
+    width: auto;
+  }
+}
