@@ -7,10 +7,10 @@ page-my {
   }
 
   .ion-md-settings {
-    top: 8px;
+    top: 18px;
   }
   .ion-ios-settings {
-    top: 5px;
+    top: 20px;
   }
 
   .item-md.item-block .item-inner, .item-ios.item-block .item-inner {
@@ -19,6 +19,14 @@ page-my {
   ion-avatar {
     padding-left: 10px;
     margin-bottom: 5px;
+  }
+
+  .item-inner>.input-wrapper>.label-ios{
+    margin-bottom: 0px;
+  }
+
+  .item-inner>.input-wrapper>.label-md{
+    margin-bottom: 0px;
   }
 
   .avatar-left {
@@ -39,12 +47,16 @@ page-my {
     font-size: 13px;
   }
 
-  .input-wrapper .avatar-right-letter:nth-child(2) {
+  .board-cnt {
     padding-top: 9px;
   }
 
   .avatar-right-letter span {
     color: #000;
     font-size: 13px;
+  }
+
+  ion-thumbnail{
+    margin:auto;
   }
 }
