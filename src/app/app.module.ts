@@ -11,6 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome'
 import { LoginPage } from '../pages/login/login';
 import { JoinModal } from '../pages/login/join/join';
+import { SettingModal } from '../pages/my/setting/setting';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +26,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     WelcomePage,
     LoginPage,
-    JoinModal
+    JoinModal,
+    SettingModal
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     WelcomePage,
     LoginPage,
-    JoinModal
+    JoinModal,
+    SettingModal
   ],
   providers: [
     StatusBar,

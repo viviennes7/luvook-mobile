@@ -3,12 +3,17 @@
     <ion-title text-center>
       My Account
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="logoutConfirm()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
- 
+
 <ion-content>
   <ion-item>
-    <ion-icon name="settings" class="icon-settings"></ion-icon>
+    <ion-icon name="settings" class="icon-settings" (click)="openJoinModal()"></ion-icon>
     <div class="avatar-left">
       <ion-avatar>
         <img src="../../assets/sample/profile_ms.jpg">
