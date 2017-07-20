@@ -1,14 +1,19 @@
 page-login {
   #login-facebook {
-    background-color: #1749b0;
+    background-color: #3b5998;
   }
+
   #login-kakao{
-    background-color: #fae101;
+    background-color: #ffeb00;
     color: black;
   }
 
   #footer-join{
     font-size:12px;
     text-align: center;
+  }
+
+  #login-facebook img, #login-kakao img{
+    height: 2.3em;
   }
 }
