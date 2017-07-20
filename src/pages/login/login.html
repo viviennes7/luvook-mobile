@@ -9,13 +9,21 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-input type="text" placeholder="Username"></ion-input>
+      <ion-input type="text" placeholder="Username" id="login-username"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input type="password" placeholder="Password"></ion-input>
     </ion-item>
   </ion-list>
   <div padding>
-   <button ion-button color="blue" block>Sign In</button>
+   <button ion-button color="blue" block (click)="locateMainPage()">로그인</button>
+   <button ion-button id="login-facebook" block (click)="locateMainPage()">페이스북으로 로그인</button>
+   <button ion-button id="login-kakao" block (click)="locateMainPage()">카카오톡으로 로그인</button>
   </div>
+
+  <ion-footer>
+    <ion-toolbar>
+      <div id="footer-join">계정이 없으신가요? <strong>가입</strong></div>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>
