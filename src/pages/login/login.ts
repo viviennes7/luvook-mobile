@@ -12,12 +12,15 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               private viewCtrl: ViewController,
               public modalCtrl: ModalController) {}
+
   ionViewWillEnter() {
     this.viewCtrl.showBackButton(false);
   }
+
   locateMainPage(){
     this.navCtrl.push(TabsPage);
   }
+
   openJoinModal() {
     let modal = this.modalCtrl.create(JoinModal);
     modal.present();

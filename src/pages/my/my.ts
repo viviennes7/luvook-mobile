@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController, AlertController } from 'ionic-angular';
 
 import { SettingModal } from './setting/setting';
+import {DetailviewModal} from "../common/detailview/detailview";
 
 @Component({
   selector: 'page-my',
@@ -14,6 +15,11 @@ export class MyPage {
               public alertCtrl: AlertController) {}
   openJoinModal() {
     let modal = this.modalCtrl.create(SettingModal);
+    modal.present();
+  }
+
+  openDetailviewModal(){
+    let modal = this.modalCtrl.create(DetailviewModal);
     modal.present();
   }
 

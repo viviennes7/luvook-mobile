@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,ModalController } from 'ionic-angular';
+import { TimelinePage } from "../timeline/timeline";
 
 @Component({
   selector: 'page-search',
@@ -7,8 +8,10 @@ import { NavController } from 'ionic-angular';
 })
 export class SearchPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public modalCtrl: ModalController) {}
 
+  locateMainPage(){
+    let modal = this.modalCtrl.create(TimelinePage);
+    modal.present();
   }
-
 }

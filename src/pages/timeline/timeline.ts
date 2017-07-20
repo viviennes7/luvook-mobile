@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController, ViewController } from 'ionic-angular';
+
+import {DetailviewModal} from "../common/detailview/detailview"
 
 @Component({
   selector: 'page-timeline',
@@ -7,8 +9,16 @@ import { NavController } from 'ionic-angular';
 })
 export class TimelinePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public modalCtrl: ModalController,
+              public viewCtrl: ViewController) {}
 
+  openDetailviewModal(){
+    let modal = this.modalCtrl.create(DetailviewModal);
+    modal.present();
   }
 
+  ionViewWillEnter() {
+    this.viewCtrl.showBackButton(false);
+  }
 }

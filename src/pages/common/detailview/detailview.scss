@@ -1,4 +1,4 @@
-page-timeline {
+modal-detailview {
   .card-md, .card-ios{
     margin-left: 0;
     margin-right: 0;
@@ -9,5 +9,14 @@ page-timeline {
 
   .card-bottom-col {
     text-align: center;
+  }
+
+  .item-ios.item-block .item-inner,
+  .item-md.item-block .item-inner{
+    border-bottom: none;
+  }
+
+  .comment-contents{
+    white-space: normal;
   }
 }
