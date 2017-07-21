@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { PostContentsPage } from './contents/contents';
 
 @Component({
   selector: 'page-post',
@@ -7,8 +8,9 @@ import { NavController } from 'ionic-angular';
 })
 export class PostPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController) {}
 
+  locateContentsPage(){
+    this.navCtrl.push(PostContentsPage);
   }
-
 }

@@ -1,0 +1,17 @@
+page-post-contents {
+  .post-contents img{
+    height: 70px;
+  }
+
+  [contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    display: block;
+    color:#b3b3b3;
+  }
+
+  .grade-star{
+    padding-left:5px;
+    font-size: 1.3em;
+    color:#cba135;
+  }
+}

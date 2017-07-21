@@ -4,16 +4,16 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card (click)="openDetailviewModal()">
+  <ion-card>
     <ion-item>
-      <ion-avatar item-start>
+      <ion-avatar item-start (click)="alert()">
         <img src="../../assets/sample/profile_ms.jpg">
       </ion-avatar>
       <h2>밍수</h2>
       <p>2017.07.18</p>
     </ion-item>
-    <img src="../../assets/sample/book.jpg">
-    <ion-card-content>
+    <img src="../../assets/sample/book1.jpg" class="timeline-book" (click)="openDetailviewModal()">
+    <ion-card-content (click)="openDetailviewModal()">
       <p>너무나 즐거운 책</p>
     </ion-card-content>
     <ion-row>
@@ -45,7 +45,7 @@
       <h2>밍수</h2>
       <p>2017.07.18</p>
     </ion-item>
-    <img src="../../assets/sample/book.jpg">
+    <img src="../../assets/sample/book2.jpg" class="timeline-book">
     <ion-card-content>
       <p>너무나 즐거운 책</p>
     </ion-card-content>

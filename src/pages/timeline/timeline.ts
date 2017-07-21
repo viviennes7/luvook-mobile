@@ -21,4 +21,8 @@ export class TimelinePage {
   ionViewWillEnter() {
     this.viewCtrl.showBackButton(false);
   }
+
+  alert(){
+    alert(123);
+  }
 }
