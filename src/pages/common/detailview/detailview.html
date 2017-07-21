@@ -18,9 +18,19 @@
       </ion-avatar>
       <h2>밍수</h2>
       <p>2017.07.18</p>
-      <img src="../../assets/sample/book1.jpg" item-end style="height:55px; width:auto;"/>
+      <img src="../../assets/sample/book1.jpg" item-end style="height:55px; width:auto;" (click)="openItemModal();"/>
     </ion-item>
-    <img src="../../assets/sample/book.jpg">
+    <ion-slides pager>
+      <ion-slide>
+        <img src="../../assets/sample/book.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sample/book.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sample/book.jpg">
+      </ion-slide>
+    </ion-slides>
     <ion-card-content>
       <p>너무나 즐거운 책</p>
     </ion-card-content>

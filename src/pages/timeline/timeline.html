@@ -6,13 +6,13 @@
 <ion-content>
   <ion-card>
     <ion-item>
-      <ion-avatar item-start (click)="alert()">
+      <ion-avatar item-start (click)="openHomeModal()">
         <img src="../../assets/sample/profile_ms.jpg">
       </ion-avatar>
-      <h2>밍수</h2>
+      <h2 (click)="openHomeModal()">밍수</h2>
       <p>2017.07.18</p>
     </ion-item>
-    <img src="../../assets/sample/book1.jpg" class="timeline-book" (click)="openDetailviewModal()">
+    <img src="http://image.aladin.co.kr//product//4973//15//cover//8966261205_1.jpg" class="timeline-book" (click)="openDetailviewModal()">
     <ion-card-content (click)="openDetailviewModal()">
       <p>너무나 즐거운 책</p>
     </ion-card-content>
