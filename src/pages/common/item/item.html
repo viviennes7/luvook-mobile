@@ -3,6 +3,13 @@
     <ion-title text-center>
       Book
     </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <!--<span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>-->
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -20,10 +27,10 @@
       <div>
         가격 : <span>39,000</span>
       </div><br />
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
+      <ion-icon name="star" class="grade-star"></ion-icon>
+      <ion-icon name="star" class="grade-star"></ion-icon>
+      <ion-icon name="star" class="grade-star"></ion-icon>
+      <ion-icon name="star-half" class="grade-star"></ion-icon>
       <ion-icon name="star-outline" class="grade-star"></ion-icon>
       <span>(3.8)</span>
     </div>
@@ -34,4 +41,14 @@
     하지만 이 책은 단순히 HTTP에 대해서만 다루지는 않는다.
     HTTP가 효율적으로 동작하도록 함께 사용하는 다른 핵심 인터넷 기술에 대해서도 다룬다
   </div>
+  <div>
+    <p><B>I. HTTP: 웹의 기초</B><BR>\n<BR>\n1장 HTTP 개관 <BR>\n1.1 HTTP: 인터넷의 멀티미디어 배달부<BR>\n1.2 웹 클라이언트와 서버<BR>\n1.3 리소스 <BR>\n1.4 트랜잭션<BR>\n1.5 메시지 <BR>\n1.6 TCP 커넥션 <BR>\n1.7 프로토콜 버전 <BR>\n1.8 웹의 구성요소 <BR>\n1.9 시작의 끝 <BR>\n1.10 추가 정보 <BR>\n<BR>\n2장 URL과 리소스<BR>\n2.1 인터넷의 리소스 탐색하기 <BR>\n2.2 URL 문법<BR>\n2.3 단축 URL<BR>\n2.4 안전하지 않은 문자<BR>\n2.5 스킴의 바다 <BR>\n2.6 미래 <BR>\n2.7 추가 정보<BR>\n<BR>\n3장 HTTP 메시지 <BR>\n3.1 메시지의 흐름 <BR>\n3.2 메시지의 각 부분 <BR>\n3.3 메서드<BR>\n3.4 상태 코드 <BR>\n3.5 헤더 <BR>\n3.6 추가 정보<BR>\n<BR>\n4장 커넥션 관리 <BR>\n4.1 TCP 커넥션 <BR>\n4.2 TCP의 성능에 대한 고려<BR>\n4.3 HTTP 커넥션 관리 <BR>\n4.4 병렬 커넥션 <BR>\n4.5 지속 커넥션 <BR>\n4.6 파이프라인 커넥션 <BR>\n4.7 커넥션 끊기에 대한 미스터리<BR>\n4.8 추가 정보 <BR>\n<BR>\n<B>II. HTTP 아키텍처 </B><BR>\n<BR>\n5장 웹 서버 <BR>\n5.1 다채로운 웹 서버 <BR>\n5.2 간단한 펄 웹 서버 <BR>\n5.3 진짜 웹 서버가 하는 일 <BR>\n5.4 단계 1: 클라이언트 커넥션 수락<BR>\n5.5 단계 2: 요청 메시지 수신<BR>\n5.6 단계 3: 요청 처리<BR>\n5.7 단계 4: 리소스의 매핑과 접근<BR>\n5.8 단계 5: 응답 만들기 <BR>\n5.9 단계 6: 응답 보내기 <BR>\n5.10 단계 7: 로깅 <BR>\n5.11 추가 정보 <BR>\n<BR>\n6장 프락시 <BR>\n6.1 웹 중개자 <BR>\n6.2 왜 프락시를 사용하는가? <BR>\n6.3 프락시는 어디에 있는가? <BR>\n6.4 클라이언트 프락시 설정 <BR>\n6.5 프락시 요청의 미묘한 특징들 <BR>\n6.6 메시지 추적 <BR>\n6.7 프락시 인증 <BR>\n6.8 프락시 상호운용성 <BR>\n6.9 추가 정보 <BR>\n<BR>\n7장 캐시 <BR>\n7.1 불필요한 데이터 전송 <BR>\n7.2 대역폭 병목 <BR>\n7.3 갑작스런 요청 쇄도(Flash Crowds) <BR>\n7.4 거리로 인한 지연 <BR>\n7.5 적중과 부적중 <BR>\n7.6 캐시 토폴로지 <BR>\n7.7 캐시 처리 단계 <BR>\n7.8 사본을 신선하게 유지하기 <BR>\n7.9 캐시 제어 <BR>\n7.10 캐시 제어 설정 <BR>\n7.11 자세한 알고리즘 <BR>\n7.12 캐시와 광고 <BR>\n7.13 추가 정보 <BR>\n<BR>\n8장 통합점: 게이트웨이, 터널, 릴레이 <BR>\n8.1 게이트웨이 <BR>\n8.2 프로토콜 게이트웨이 <BR>\n8.3 리소스 게이트웨이 <BR>\n8.4 애플리케이션 인터페이스와 웹 서비스 <BR>\n8.5 터널 <BR>\n8.6 릴레이 <BR>\n8.7 추가 정보 <BR>\n<BR>\n9장 웹 로봇 <BR>\n9.1 크롤러와 크롤링 <BR>\n9.2 로봇의 HTTP <BR>\n9.3 부적절하게 동작하는 로봇들 <BR>\n9.4 로봇 차단하기 <BR>\n9.5 로봇 에티켓 <BR>\n9.6 검색엔진 <BR>\n9.7 추가 정보 <BR>\n<BR>\n10장 HTTP/2.0 <BR>\n10.1 HTTP/2.0의 등장 배경 <BR>\n10.2 개요 <BR>\n10.3 HTTP/1.1과의 차이점 <BR>\n10.4 알려진 보안 이슈 <BR>\n10.5 추가 정보 <BR>\n<BR>\n<B>III. 식별, 인가, 보안 </B><BR>\n<BR>\n11장 클라이언트 식별과 쿠키 <BR>\n11.1 개별 접촉 <BR>\n11.2 HTTP 헤더 <BR>\n11.3 클라이언트 IP 주소 <BR>\n11.4 사용자 로그인 <BR>\n11.5 뚱뚱한 URL <BR>\n11.6 쿠키 <BR>\n11.7 추가 정보 <BR>\n<BR>\n12장 기본 인증 <BR>\n12.1 인증 <BR>\n12.2 기본 인증 <BR>\n12.3 기본 인증의 보안 결함 <BR>\n12.4 추가 정보 <BR>\n<BR>\n13장 다이제스트 인증 <BR>\n13.1 다이제스트 인증의 개선점 <BR>\n13.2 요약 계산 <BR>\n13.3 보호 수준(Quality of Protection) 향상 <BR>\n13.4 실제 상황에 대한 고려 <BR>\n13.5 보안에 대한 고려사항 <BR>\n13.6 추가 정보 <BR>\n<BR>\n14장 보안 HTTP <BR>\n14.1 HTTP를 안전하게 만들기 <BR>\n14.1.1 HTTPS <BR>\n14.2 디지털 암호학 <BR>\n14.3 대칭키 암호법 <BR>\n14.4 공개키 암호법 <BR>\n14.5 디지털 서명 <BR>\n14.6 디지털 인증서 <BR>\n14.7 HTTPS의 세부사항 <BR>\n14.8 진짜 HTTPS 클라이언트 <BR>\n14.9 프락시를 통한 보안 트래픽 터널링 <BR>\n14.10 추가 정보 388<BR>\n<BR>\n<B>IV. 엔터티, 인코딩, 국제화 </B><BR>\n<BR>\n15장 엔터티와 인코딩 <BR>\n15.1 메시지는 컨테이너, 엔터티는 화물 <BR>\n15.2 Content-Length: 엔터티의 길이 <BR>\n15.3 엔터티 요약 <BR>\n15.4 미디어 타입과 차셋(Charset) <BR>\n15.5 콘텐츠 인코딩 <BR>\n15.6 전송 인코딩과 청크 인코딩 <BR>\n15.7 시간에 따라 바뀌는 인스턴스 <BR>\n15.8 검사기와 신선도 <BR>\n15.9 범위 요청 <BR>\n15.10 델타 인코딩 <BR>\n15.11 추가 정보 <BR>\n<BR>\n16장 국제화 <BR>\n16.1 국제적인 콘텐츠를 다루기 위해 필요한 HTTP 지원 <BR>\n16.2 문자집합과 HTTP <BR>\n16.3 다중언어 문자 인코딩에 대한 지침 <BR>\n16.4 언어 태그와 HTTP <BR>\n16.5 국제화된 URI <BR>\n16.6 기타 고려사항 <BR>\n16.7 추가 정보 <BR>\n<BR>\n17장 내용 협상과 트랜스코딩 <BR>\n17.1 내용 협상 기법 <BR>\n17.2 클라이언트 주도 협상 <BR>\n17.3 서버 주도 협상 <BR>\n17.4 투명 협상 <BR>\n17.5 트랜스코딩 <BR>\n17.6 다음 단계 <BR>\n17.7 추가 정보 <BR>\n<BR>\n<B>V. 콘텐츠 발행 및 배포 </B><BR>\n<BR>\n18장 웹 호스팅 <BR>\n18.1 호스팅 서비스 <BR>\n18.2 가상 호스팅 <BR>\n18.3 안정적인 웹 사이트 만들기 <BR>\n18.4 웹 사이트 빠르게 만들기 <BR>\n18.5 추가 정보 <BR>\n<BR>\n19장 배포 시스템 <BR>\n19.1 배포 지원을 위한 FrontPage 서버 확장 <BR>\n19.2 WebDAV와 공동 저작 <BR>\n19.3 추가 정보 <BR>\n<BR>\n20장 리다이렉션과 부하 균형 <BR>\n20.1 왜 리다이렉트인가? <BR>\n20.2 리다이렉트 할 곳 <BR>\n20.3 리다이렉션 프로토콜의 개요 <BR>\n20.4 일반적인 리다이렉션 방법 <BR>\n20.5 프락시 리다이렉션 방법 <BR>\n20.6 캐시 리다이렉션 방법 <BR>\n20.7 인터넷 캐시 프로토콜 <BR>\n20.8 캐시 배열 라우팅 프로토콜 <BR>\n20.9 하이퍼텍스트 캐싱 프로토콜 <BR>\n20.10 추가 정보 <BR>\n<BR>\n21장 로깅과 사용 추적 <BR>\n21.1 로그란 무엇인가? <BR>\n21.2 로그 포맷 <BR>\n21.3 적중 계량하기 <BR>\n21.4 개인 정보 보호에 대해 <BR>\n21.5 추가 정보 <BR>\n<BR>\n<B>VI. 부록 </B><BR>\n<BR>\n부록 A URI 스킴 <BR>\n<BR>\n부록 B HTTP 상태 코드 <BR>\nB.1 상태 코드 분류 <BR>\nB.2 상태 코드 <BR>\n<BR>\n부록 C HTTP 헤더 레퍼런스 <BR>\n<BR>\n부록 D MIME 타입 <BR>\nD.1 배경 <BR>\nD.2 MIME 타입 구조 <BR>\nD.3 MIME 타입 IANA 등록 <BR>\nD.4 미디어 타입 표 <BR>\n<BR>\n부록 E base-64 인코딩 <BR>\nE.1 Base-64 인코딩은 이진 데이터를 안전하게 만들어준다 <BR>\nE.2 8비트를 6비트로 <BR>\nE.3 Base-64 패딩 <BR>\nE.4 펄 구현 <BR>\nE.5 추가 정보 <BR>\n<BR>\n부록 F 다이제스트 인증 <BR>\nF.1 다이제스트 WWW-Authenticate 지시자들 <BR>\nF.2 다이제스트 Authorization 지시자들 <BR>\nF.3 다이제스트 Authentication-Info 지시자들 <BR>\nF.4 참조 코드 <BR>\n<BR>\n부록 G 언어 태그 <BR>\nG.1 첫 번째 서브태그 규칙 <BR>\nG.2 두 번째 서브태그 규칙 <BR>\nG.3 IANA에 등록된 언어 태그들 <BR>\nG.4 ISO 639 언어 코드 <BR>\nG.5 ISO 3166 국가 코드 <BR>\nG.6 언어 관리 단체 <BR>\n<BR>\n부록 H MIME 문자집합 등록</p>
+  </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <a target="_blank" href="http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=102498433&start=wz" id="book-sell">
+      구매하러가기
+    </a>
+  </ion-toolbar>
+</ion-footer>
