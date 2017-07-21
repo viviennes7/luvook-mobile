@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
+
 import { PostContentsPage } from './contents/contents';
+import { ItemModal } from '../common/item/item';
 
 @Component({
   selector: 'page-post',
@@ -8,9 +10,15 @@ import { PostContentsPage } from './contents/contents';
 })
 export class PostPage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController,
+              public modalCtrl: ModalController) {}
 
   locateContentsPage(){
     this.navCtrl.push(PostContentsPage);
+  }
+
+  openItemModal(){
+    let modal = this.modalCtrl.create(ItemModal);
+    modal.present();
   }
 }
