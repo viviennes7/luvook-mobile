@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, ViewController } from 'ionic-angular';
 
-import {DetailviewModal} from "../detailview/detailview"
-import {MyPage} from "../../my/my";
-import {ItemModal} from '../item/item';
+import {DetailviewModal} from "../../component/detailview/detailview.component";
+import {MyPage} from "../../pages/my/my";
+import {ItemModal} from '../../component/item/item.component';
+
 @Component({
   selector: 'page-board',
-  templateUrl: 'board.html'
+  templateUrl: 'board.component.html'
 })
 export class BoardPage {
 

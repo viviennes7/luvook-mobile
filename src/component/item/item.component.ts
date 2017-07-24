@@ -3,7 +3,7 @@ import { NavController, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'modal-item',
-  templateUrl: 'item.html'
+  templateUrl: 'item.component.html'
 })
 export class ItemModal {
   constructor(public viewCtrl: ViewController) {}

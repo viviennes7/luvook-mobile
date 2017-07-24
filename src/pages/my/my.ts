@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController, AlertController, App,NavParams } from 'ionic-angular';
 
 import { SettingModal } from './setting/setting';
-import {DetailviewModal} from "../common/detailview/detailview";
+import {DetailviewModal} from "../../component/detailview/detailview.component";
 import { LoginPage } from '../login/login';
 @Component({
   selector: 'page-my',

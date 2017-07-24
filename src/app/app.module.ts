@@ -12,10 +12,10 @@ import { WelcomePage } from '../pages/welcome/welcome'
 import { LoginPage } from '../pages/login/login';
 import { JoinModal } from '../pages/login/join/join';
 import { SettingModal } from '../pages/my/setting/setting';
-import { DetailviewModal } from "../pages/common/detailview/detailview";
+import { DetailviewModal } from "../component/detailview/detailview.component";
 import { PostContentsPage } from "../pages/post/contents/contents";
-import { ItemModal } from "../pages/common/item/item";
-import { BoardPage } from "../pages/common/board/board";
+import { ItemModal } from "../component/item/item.component";
+import { BoardPage } from "../component/board/board.component";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 

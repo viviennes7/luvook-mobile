@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
 import { PostContentsPage } from './contents/contents';
-import { ItemModal } from '../common/item/item';
+import { ItemModal } from '../../component/item/item.component';
 
 @Component({
   selector: 'page-post',
