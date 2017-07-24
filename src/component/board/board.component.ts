@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavController, ModalController, ViewController } from 'ionic-angular';
 
 import {DetailviewModal} from "../../component/detailview/detailview.component";
 import {MyPage} from "../../pages/my/my";
 import {ItemModal} from '../../component/item/item.component';
+import {CommentPage} from '../../pages/comment/comment';
 
 @Component({
   selector: 'page-board',
@@ -11,6 +12,7 @@ import {ItemModal} from '../../component/item/item.component';
 })
 export class BoardPage {
 
+  @Input() isDetail: boolean;
   isClickedHeart :boolean = false;
   heartShape : string = 'heart-outline';
   heartCount : number = 12;
@@ -20,8 +22,10 @@ export class BoardPage {
               public viewCtrl: ViewController) {}
 
   openDetailviewModal(){
-    let modal = this.modalCtrl.create(DetailviewModal);
-    modal.present();
+    if(!this.isDetail){
+      let modal = this.modalCtrl.create(DetailviewModal);
+      modal.present();
+    }
   }
 
   openHomeModal(){
@@ -31,6 +35,20 @@ export class BoardPage {
 
   ionViewWillEnter() {
     this.viewCtrl.showBackButton(false);
+  }
+
+  openItemModal(){
+    let modal = this.modalCtrl.create(ItemModal);
+    modal.present();
+  }
+
+  openCommentModal(){
+    let modal = this.modalCtrl.create(CommentPage);
+    modal.present();
+  }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
   clickHeart(){
@@ -43,14 +61,5 @@ export class BoardPage {
       this.heartShape = 'heart';
       this.heartCount++;
     }
-  }
-
-  dismiss() {
-    this.viewCtrl.dismiss();
-  }
-
-  openItemModal(){
-    let modal = this.modalCtrl.create(ItemModal);
-    modal.present();
   }
 }

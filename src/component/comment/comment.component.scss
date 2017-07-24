@@ -1,0 +1,22 @@
+comment {
+  .card-md, .card-ios{
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    width: 100%;
+    box-shadow : none;
+  }
+
+  .card-bottom-col {
+    text-align: center;
+  }
+
+  .item-ios.item-block .item-inner,
+  .item-md.item-block .item-inner{
+    border-bottom: none;
+  }
+
+  .comment-contents{
+    white-space: normal;
+  }
+}

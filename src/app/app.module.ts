@@ -14,8 +14,11 @@ import { JoinModal } from '../pages/login/join/join';
 import { SettingModal } from '../pages/my/setting/setting';
 import { DetailviewModal } from "../component/detailview/detailview.component";
 import { PostContentsPage } from "../pages/post/contents/contents";
+import { CommentPage } from "../pages/comment/comment";
 import { ItemModal } from "../component/item/item.component";
 import { BoardPage } from "../component/board/board.component";
+import { CommentComponent } from "../component/comment/comment.component";
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -34,7 +37,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DetailviewModal,
     PostContentsPage,
     ItemModal,
-    BoardPage
+    BoardPage,
+    CommentComponent,
+    CommentPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DetailviewModal,
     PostContentsPage,
     ItemModal,
-    BoardPage
+    BoardPage,
+    CommentComponent,
+    CommentPage
   ],
   providers: [
     StatusBar,
