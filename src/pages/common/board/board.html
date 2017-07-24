@@ -27,7 +27,7 @@
   <ion-row>
     <ion-col class="card-bottom-col">
       <button ion-button icon-left clear small (click)="clickHeart()">
-        <ion-icon name="{{heartShape}}" [ngClass]="{'clicked-heart':isClickedHeart}"></ion-icon>
+        <ion-icon name="{{heartShape}}" [class.clicked-heart]="isClickedHeart"></ion-icon>
         <div>{{heartCount}}</div>
       </button>
     </ion-col>

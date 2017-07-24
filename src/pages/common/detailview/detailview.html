@@ -11,50 +11,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/sample/profile_ms.jpg">
-      </ion-avatar>
-      <h2>밍수</h2>
-      <p>2017.07.18</p>
-      <img src="assets/sample/book1.jpg" item-end style="height:55px; width:auto;" (click)="openItemModal()"/>
-    </ion-item>
-    <ion-slides pager>
-      <ion-slide>
-        <img src="assets/sample/book.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="assets/sample/book.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="assets/sample/book.jpg">
-      </ion-slide>
-    </ion-slides>
-    <ion-card-content>
-      <p>너무나 즐거운 책</p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col class="card-bottom-col">
-        <button ion-button icon-left clear small>
-          <ion-icon name="heart-outline"></ion-icon>
-          <div>12</div>
-        </button>
-      </ion-col>
-      <ion-col class="card-bottom-col">
-        <button ion-button icon-left clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>4</div>
-        </button>
-      </ion-col>
-      <ion-col class="card-bottom-col">
-        <button ion-button icon-left clear small>
-          <ion-icon name="star-outline"></ion-icon>
-          <div>5</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
+  <page-board></page-board>
   <ion-item>
     <ion-avatar item-start>
       <img src="assets/sample/profile_ms.jpg">
