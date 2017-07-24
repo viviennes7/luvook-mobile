@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ViewController, ModalController  } from 'ionic-angular';
 
 import{ TabsPage } from '../tabs/tabs';
-import{ JoinModal } from './join/join';
+import{ JoinPage } from './join/join';
 
 @Component({
   selector: 'page-login',
@@ -22,7 +22,7 @@ export class LoginPage {
   }
 
   openJoinModal() {
-    let modal = this.modalCtrl.create(JoinModal);
+    let modal = this.modalCtrl.create(JoinPage);
     modal.present();
   }
 }

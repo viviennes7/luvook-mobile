@@ -10,8 +10,8 @@ import { SearchPage } from '../pages/search/search';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome'
 import { LoginPage } from '../pages/login/login';
-import { JoinModal } from '../pages/login/join/join';
-import { SettingModal } from '../pages/my/setting/setting';
+import { JoinPage } from '../pages/login/join/join';
+import { SettingPage } from '../pages/my/setting/setting';
 import { DetailviewModal } from "../component/detailview/detailview.component";
 import { PostContentsPage } from "../pages/post/contents/contents";
 import { CommentPage } from "../pages/comment/comment";
@@ -32,8 +32,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     WelcomePage,
     LoginPage,
-    JoinModal,
-    SettingModal,
+    JoinPage,
+    SettingPage,
     DetailviewModal,
     PostContentsPage,
     ItemModal,
@@ -55,8 +55,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     WelcomePage,
     LoginPage,
-    JoinModal,
-    SettingModal,
+    JoinPage,
+    SettingPage,
     DetailviewModal,
     PostContentsPage,
     ItemModal,

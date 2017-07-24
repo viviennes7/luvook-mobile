@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 
 @Component({
-  selector: 'modal-join',
+  selector: 'page-join',
   templateUrl: 'join.html'
 })
-export class JoinModal {
+export class JoinPage {
   constructor(public viewCtrl: ViewController) {}
   dismiss() {
     this.viewCtrl.dismiss();

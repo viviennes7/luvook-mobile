@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, AlertController, App,NavParams } from 'ionic-angular';
 
-import { SettingModal } from './setting/setting';
+import { SettingPage } from './setting/setting';
 import {DetailviewModal} from "../../component/detailview/detailview.component";
 import { LoginPage } from '../login/login';
 @Component({
@@ -22,7 +22,7 @@ export class MyPage {
               }
 
   openJoinModal() {
-    let modal = this.modalCtrl.create(SettingModal);
+    let modal = this.modalCtrl.create(SettingPage);
     modal.present();
   }
 
