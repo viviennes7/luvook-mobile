@@ -1,0 +1,47 @@
+<ion-card>
+  <ion-item>
+    <ion-avatar item-start (click)="openHomeModal()">
+      <img src="assets/sample/profile_ms.jpg">
+    </ion-avatar>
+    <h2 (click)="openHomeModal()">밍수</h2>
+    <p>2017.07.18</p>
+
+    <img src="assets/sample/book1.jpg" item-end style="height:55px; width:auto;" (click)="openItemModal()"/>
+
+  </ion-item>
+  <!-- <img src="http://image.aladin.co.kr//product//4973//15//cover//8966261205_1.jpg" class="timeline-book" (click)="openDetailviewModal()"> -->
+  <ion-slides pager (click)="openDetailviewModal()">
+    <ion-slide>
+      <img src="assets/sample/book.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/sample/book.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/sample/book.jpg">
+    </ion-slide>
+  </ion-slides>
+  <ion-card-content (click)="openDetailviewModal()">
+    <p>너무나 즐거운 책</p>
+  </ion-card-content>
+  <ion-row>
+    <ion-col class="card-bottom-col">
+      <button ion-button icon-left clear small (click)="clickHeart()">
+        <ion-icon name="{{heartShape}}" [ngClass]="{'clicked-heart':isClickedHeart}"></ion-icon>
+        <div>{{heartCount}}</div>
+      </button>
+    </ion-col>
+    <ion-col class="card-bottom-col">
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4</div>
+      </button>
+    </ion-col>
+    <ion-col class="card-bottom-col">
+    <button ion-button icon-left clear small>
+      <ion-icon name="star" id="icon-start"></ion-icon>
+      <div>5</div>
+    </button>
+  </ion-col>
+  </ion-row>
+</ion-card>

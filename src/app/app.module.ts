@@ -15,7 +15,7 @@ import { SettingModal } from '../pages/my/setting/setting';
 import { DetailviewModal } from "../pages/common/detailview/detailview";
 import { PostContentsPage } from "../pages/post/contents/contents";
 import { ItemModal } from "../pages/common/item/item";
-
+import { BoardPage } from "../pages/common/board/board";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -33,7 +33,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingModal,
     DetailviewModal,
     PostContentsPage,
-    ItemModal
+    ItemModal,
+    BoardPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +54,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingModal,
     DetailviewModal,
     PostContentsPage,
-    ItemModal
+    ItemModal,
+    BoardPage
   ],
   providers: [
     StatusBar,

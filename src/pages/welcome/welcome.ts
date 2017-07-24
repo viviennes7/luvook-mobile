@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 @Component({
@@ -25,9 +25,10 @@ export class WelcomePage {
       image: "assets/sample/ica-slidebox-img-3.png",
     }
   ];
-  constructor(public navCtrl: NavController){}
+  constructor(public navCtrl: NavController,
+              public appCtrl: App){}
 
   locateLoginPage() {
-    this.navCtrl.push(LoginPage);
+    this.appCtrl.getRootNav().setRoot(LoginPage);
   }
 }

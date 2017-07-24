@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, AlertController, App } from 'ionic-angular';
+import { NavController, ModalController, AlertController, App,NavParams } from 'ionic-angular';
 
 import { SettingModal } from './setting/setting';
 import {DetailviewModal} from "../common/detailview/detailview";
@@ -10,11 +10,17 @@ import { LoginPage } from '../login/login';
 })
 export class MyPage {
 
+  isMe:boolean = true;
+
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
               public alertCtrl: AlertController,
-              public appCtrl: App) {}
-              
+              public appCtrl: App,
+              public params: NavParams) {
+                let isMe = params.get("isMe");
+                isMe === undefined ? this.isMe = true : this.isMe = false;
+              }
+
   openJoinModal() {
     let modal = this.modalCtrl.create(SettingModal);
     modal.present();
