@@ -15,25 +15,25 @@
   <div class="post-contents">
     <ion-item no-lines>
       <img src="assets/sample/book3.jpg" item-start/>
-      <div class="contents-textarea" contentEditable="true" placeholder="contents..." (click)="focus"></div>
+      <div class="contents-textarea" contentEditable="true" placeholder="contents..."></div>
     </ion-item>
   </div>
   <ion-item>
     <span>별점</span>
     <button ion-button icon-left clear class="star-wrapper">
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
+      <ion-icon name="{{stars[0]}}" class="grade-star" (click)="onClickStar(1)"></ion-icon>
     </button>
     <button ion-button icon-left clear class="star-wrapper">
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
+      <ion-icon name="{{stars[1]}}" class="grade-star" (click)="onClickStar(2)"></ion-icon>
     </button>
     <button ion-button icon-left clear class="star-wrapper">
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
+      <ion-icon name="{{stars[2]}}" class="grade-star" (click)="onClickStar(3)"></ion-icon>
     </button>
     <button ion-button icon-left clear class="star-wrapper">
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
+      <ion-icon name="{{stars[3]}}" class="grade-star" (click)="onClickStar(4)"></ion-icon>
     </button>
     <button ion-button icon-left clear class="star-wrapper">
-      <ion-icon name="star-outline" class="grade-star"></ion-icon>
+      <ion-icon name="{{stars[4]}}" class="grade-star" (click)="onClickStar(5)"></ion-icon>
     </button>
 
   </ion-item>
