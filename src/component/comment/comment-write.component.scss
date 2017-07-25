@@ -1,0 +1,22 @@
+page-comment-write{
+  .toolbar-background{
+    background-color: white;
+  }
+
+  .comment-write{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  [contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    display: block;
+    color:#b3b3b3;
+  }
+  .btn-write{
+    margin: 0px !important;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+}

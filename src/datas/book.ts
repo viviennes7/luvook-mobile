@@ -1,6 +1,6 @@
-import {BookSubInfo} from "./booksubinfo";
+import {BookSubInfo} from "./book-sub-info";
 
-export class Book { 
+export class Book {
   title: string;
   link: string;
   author: string;

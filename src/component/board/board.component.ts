@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { NavController, ModalController, ViewController } from 'ionic-angular';
 
-import {DetailviewModal} from "../../component/detailview/detailview.component";
+import {DetailViewComponent} from "../../component/detailview/detailview.component";
 import {MyPage} from "../../pages/my/my";
-import {ItemModal} from '../../component/item/item.component';
+import {ItemComponent} from '../../component/item/item.component';
 import {CommentPage} from '../../pages/comment/comment';
 
 @Component({
   selector: 'page-board',
   templateUrl: 'board.component.html'
 })
-export class BoardPage {
+export class BoardComponent {
 
   @Input() isDetail: boolean;
   isClickedHeart :boolean = false;
@@ -21,9 +21,9 @@ export class BoardPage {
               public modalCtrl: ModalController,
               public viewCtrl: ViewController) {}
 
-  openDetailviewModal(){
+  openDetailViewModal(){
     if(!this.isDetail){
-      let modal = this.modalCtrl.create(DetailviewModal);
+      let modal = this.modalCtrl.create(DetailViewComponent);
       modal.present();
     }
   }
@@ -38,7 +38,7 @@ export class BoardPage {
   }
 
   openItemModal(){
-    let modal = this.modalCtrl.create(ItemModal);
+    let modal = this.modalCtrl.create(ItemComponent);
     modal.present();
   }
 

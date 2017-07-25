@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
 import { PostContentsPage } from './contents/contents';
-import { ItemModal } from '../../component/item/item.component';
+import { ItemComponent } from '../../component/item/item.component';
 
 @Component({
   selector: 'page-post',
@@ -18,7 +18,7 @@ export class PostPage {
   }
 
   openItemModal(){
-    let modal = this.modalCtrl.create(ItemModal);
+    let modal = this.modalCtrl.create(ItemComponent);
     modal.present();
   }
 }

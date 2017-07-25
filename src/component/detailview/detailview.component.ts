@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import {NavController, ViewController, ModalController} from 'ionic-angular';
 
-import {ItemModal} from '../item/item.component';
+import {ItemComponent} from '../item/item.component';
 @Component({
   selector: 'modal-detailview',
   templateUrl: 'detailview.component.html'
 })
-export class DetailviewModal {
+export class DetailViewComponent {
   constructor(public viewCtrl: ViewController,
               public modalCtrl: ModalController) {}
 
@@ -15,7 +15,7 @@ export class DetailviewModal {
   }
 
   openItemModal(){
-    let modal = this.modalCtrl.create(ItemModal);
+    let modal = this.modalCtrl.create(ItemComponent);
     modal.present();
   }
 

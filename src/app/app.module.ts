@@ -12,12 +12,13 @@ import { WelcomePage } from '../pages/welcome/welcome'
 import { LoginPage } from '../pages/login/login';
 import { JoinPage } from '../pages/login/join/join';
 import { SettingPage } from '../pages/my/setting/setting';
-import { DetailviewModal } from "../component/detailview/detailview.component";
+import { DetailViewComponent } from "../component/detailview/detailview.component";
 import { PostContentsPage } from "../pages/post/contents/contents";
 import { CommentPage } from "../pages/comment/comment";
-import { ItemModal } from "../component/item/item.component";
-import { BoardPage } from "../component/board/board.component";
+import { ItemComponent } from "../component/item/item.component";
+import { BoardComponent } from "../component/board/board.component";
 import { CommentComponent } from "../component/comment/comment.component";
+import { CommentWriteComponent } from "../component/comment/comment-write.component";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,11 +35,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     JoinPage,
     SettingPage,
-    DetailviewModal,
+    DetailViewComponent,
     PostContentsPage,
-    ItemModal,
-    BoardPage,
+    ItemComponent,
+    BoardComponent,
     CommentComponent,
+    CommentWriteComponent,
     CommentPage
   ],
   imports: [
@@ -57,11 +59,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     JoinPage,
     SettingPage,
-    DetailviewModal,
+    DetailViewComponent,
     PostContentsPage,
-    ItemModal,
-    BoardPage,
+    ItemComponent,
+    BoardComponent,
     CommentComponent,
+    CommentWriteComponent,
     CommentPage
   ],
   providers: [

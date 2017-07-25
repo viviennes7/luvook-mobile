@@ -17,7 +17,6 @@ page-board {
 
   .scroll-content{
     background-color: #eee;
-    // margin-bottom: 0px;
   }
   .timeline-book{
     width: auto;
@@ -30,5 +29,10 @@ page-board {
 
   .clicked-heart{
     color: red !important;
+  }
+
+  .swiper-slide img{
+    margin: auto;
+    max-height: 230px;
   }
 }
