@@ -1,6 +1,8 @@
 import { Component, ElementRef, Renderer } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import{ PostPage } from '../post';
+
 @Component({
   selector: 'page-post-contents',
   templateUrl: 'contents.html'
@@ -21,6 +23,10 @@ export class PostContentsPage {
         let textarea = this.elementRef.nativeElement.querySelector('.contents-textarea');
         textarea.focus();
       });
+  }
+
+  saveBoard(){
+    this.navCtrl.setRoot(PostPage);
   }
 
   onClickStar(num){
