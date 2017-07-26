@@ -38,5 +38,10 @@
       </button>
     </div>
   </ion-item>
-  <button ion-button (click)="openPhotoLibraryModal()">이미지 업로드</button>
+  <button ion-button (click)="openGallery()">이미지 업로드</button>
+  <div *ngIf="this.selectedImgUris != null">
+    <div *ngFor="let img of selectedImgUris">
+      <img src="{{img}}" />
+    </div>
+  </div>
 </ion-content>

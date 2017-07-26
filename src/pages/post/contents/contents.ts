@@ -2,7 +2,8 @@ import { Component, ElementRef, Renderer } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
 import{ PostPage } from '../post';
-import{ PhotoLibraryPage } from '../../photo-library/photo-library';
+import{ ImagePickerPage } from '../../image-picker/image-picker';
+import{ ImagePicker } from '@ionic-native/image-picker';
 
 @Component({
   selector: 'page-post-contents',
@@ -14,15 +15,13 @@ export class PostContentsPage {
     'star-outline', 'star-outline', 'star-outline', 'star-outline', 'star-outline'
   ];
 
+  selectedImgUris:any;
+
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
               private elementRef:ElementRef,
-              private renderer:Renderer ) {}
-
-  openPhotoLibraryModal(){
-    let modal =this.modalCtrl.create(PhotoLibraryPage);
-    modal.present();
-  }
+              private renderer:Renderer,
+              private imagePicker: ImagePicker) {}
 
   ngAfterViewInit() {
     this.renderer
@@ -35,6 +34,22 @@ export class PostContentsPage {
   saveBoard(){
     this.navCtrl.setRoot(PostPage);
   }
+
+  openGallery(): void {
+    let options = {
+      maximumImagesCount: 8,
+      width: 500,
+      height: 500,
+      quality: 75,
+
+    }
+
+    this.imagePicker.getPictures(options).then(
+      results => this.selectedImgUris = results,/*this.navCtrl.push(ImagePickerPage, {images: file_uris})*/
+      err => console.log('err')
+    );
+  }
+
 
   onClickStar(num){
     this.initStar();
