@@ -26,7 +26,7 @@ export class MyPage {
     modal.present();
   }
 
-  openDetailviewModal(){
+  openDetailViewModal(){
     let modal = this.modalCtrl.create(DetailViewComponent);
     modal.present();
   }
