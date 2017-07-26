@@ -25,7 +25,7 @@ export class PostContentsPage {
 
   onClickStar(num){
     this.initStar();
-    
+
     for(let i=0; i<num; i++){
       this.stars[i] = 'star';
     }
