@@ -2,8 +2,11 @@ import { Component } from '@angular/core';
 import { NavController, ModalController, AlertController, App,NavParams } from 'ionic-angular';
 
 import { SettingPage } from './setting/setting';
-import {DetailViewComponent} from "../../component/detailview/detailview.component";
+import { DetailViewComponent } from "../../component/detailview/detailview.component";
 import { LoginPage } from '../login/login';
+
+import { PhotoViewerUtil } from '../../utils/photo-viewer';
+
 @Component({
   selector: 'page-my',
   templateUrl: 'my.html'
@@ -16,7 +19,8 @@ export class MyPage {
               public modalCtrl: ModalController,
               public alertCtrl: AlertController,
               public appCtrl: App,
-              public params: NavParams) {
+              public params: NavParams,
+              private photoViewerUtil: PhotoViewerUtil) {
                 let isMe = params.get("isMe");
                 isMe === undefined ? this.isMe = true : this.isMe = false;
               }

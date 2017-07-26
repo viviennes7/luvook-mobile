@@ -1,7 +1,8 @@
 import { Component, ElementRef, Renderer } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 
 import{ PostPage } from '../post';
+import{ PhotoLibraryPage } from '../../photo-library/photo-library';
 
 @Component({
   selector: 'page-post-contents',
@@ -14,8 +15,14 @@ export class PostContentsPage {
   ];
 
   constructor(public navCtrl: NavController,
+              public modalCtrl: ModalController,
               private elementRef:ElementRef,
               private renderer:Renderer ) {}
+
+  openPhotoLibraryModal(){
+    let modal =this.modalCtrl.create(PhotoLibraryPage);
+    modal.present();
+  }
 
   ngAfterViewInit() {
     this.renderer

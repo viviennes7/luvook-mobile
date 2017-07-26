@@ -1,5 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Camera } from '@ionic-native/camera';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -19,6 +21,8 @@ import { ItemComponent } from "../component/item/item.component";
 import { BoardComponent } from "../component/board/board.component";
 import { CommentComponent } from "../component/comment/comment.component";
 import { CommentWriteComponent } from "../component/comment/comment-write.component";
+import { PhotoLibraryPage } from "../pages/photo-library/photo-library"
+import { PhotoViewerUtil } from "../utils/photo-viewer";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -37,6 +41,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingPage,
     DetailViewComponent,
     PostContentsPage,
+    PhotoLibraryPage,
     ItemComponent,
     BoardComponent,
     CommentComponent,
@@ -61,6 +66,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingPage,
     DetailViewComponent,
     PostContentsPage,
+    PhotoLibraryPage,
     ItemComponent,
     BoardComponent,
     CommentComponent,
@@ -70,6 +76,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    PhotoViewer,
+    PhotoViewerUtil,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
