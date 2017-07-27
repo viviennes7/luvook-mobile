@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController, ModalController  } from 'ionic-angular';
+import { NavController, ViewController, ModalController, App  } from 'ionic-angular';
 
 import{ TabsPage } from '../tabs/tabs';
 import{ JoinPage } from './join/join';
@@ -11,14 +11,15 @@ import{ JoinPage } from './join/join';
 export class LoginPage {
   constructor(public navCtrl: NavController,
               private viewCtrl: ViewController,
-              public modalCtrl: ModalController) {}
+              public modalCtrl: ModalController,
+              private appCtrl: App) {}
 
   ionViewWillEnter() {
     this.viewCtrl.showBackButton(false);
   }
 
   locateMainPage(){
-    this.navCtrl.push(TabsPage);
+    this.appCtrl.getRootNav().setRoot(TabsPage);
   }
 
   openJoinModal() {

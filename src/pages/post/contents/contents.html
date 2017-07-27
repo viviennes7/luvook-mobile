@@ -18,9 +18,9 @@
       <div class="contents-textarea" contentEditable="true" placeholder="contents..."></div>
     </ion-item>
   </div>
-  <ion-item>
+  <ion-item no-lines>
     <span>별점</span>
-    <div>
+    <span>
       <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(1)">
         <ion-icon name="{{stars[0]}}" class="grade-star"></ion-icon>
       </button>
@@ -36,12 +36,25 @@
       <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(5)">
         <ion-icon name="{{stars[4]}}" class="grade-star"></ion-icon>
       </button>
-    </div>
+    </span>
   </ion-item>
   <button ion-button (click)="openGallery()">이미지 업로드</button>
-  <div *ngIf="this.selectedImgUris != null">
-    <div *ngFor="let img of selectedImgUris">
-      <img src="{{img}}" />
-    </div>
-  </div>
+  <ng-container *ngIf="this.selectedImgUris != null">
+    <ng-container>
+      <ion-row>
+        <ion-thumbnail col-3>
+          <img src="" />
+        </ion-thumbnail>
+        <ion-thumbnail col-3>
+          <img src=""/>
+        </ion-thumbnail>
+        <ion-thumbnail col-3>
+          <img src=""/>
+        </ion-thumbnail>
+        <ion-thumbnail col-3>
+          <img src=""/>
+        </ion-thumbnail>
+      </ion-row>
+    </ng-container>
+  </ng-container>
 </ion-content>

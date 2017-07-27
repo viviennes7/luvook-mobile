@@ -14,8 +14,7 @@ export class PostContentsPage {
   stars: string[] = [
     'star-outline', 'star-outline', 'star-outline', 'star-outline', 'star-outline'
   ];
-
-  selectedImgUris:any;
+  selectedImgUris: any;
 
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
@@ -40,16 +39,16 @@ export class PostContentsPage {
       maximumImagesCount: 8,
       width: 500,
       height: 500,
-      quality: 75,
-
+      quality: 100,
     }
 
     this.imagePicker.getPictures(options).then(
-      results => this.selectedImgUris = results,/*this.navCtrl.push(ImagePickerPage, {images: file_uris})*/
+      results => {
+        this.selectedImgUris = results;
+      },
       err => console.log('err')
     );
   }
-
 
   onClickStar(num){
     this.initStar();
