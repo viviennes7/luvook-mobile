@@ -8,7 +8,7 @@ import { Camera } from '@ionic-native/camera';
 })
 export class SettingPage {
 
-  profileImg: string = 'assets/sample/book1.jpg';
+  profileImg: string = 'assets/sample/profile_ms.jpg';
 
   constructor(public viewCtrl: ViewController,
               private camera: Camera) {}
