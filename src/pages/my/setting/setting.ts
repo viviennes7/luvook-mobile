@@ -7,6 +7,9 @@ import { Camera } from '@ionic-native/camera';
   templateUrl: 'setting.html'
 })
 export class SettingPage {
+
+  profileImg: string = 'assets/sample/book1.jpg';
+
   constructor(public viewCtrl: ViewController,
               private camera: Camera) {}
   dismiss() {
@@ -18,7 +21,7 @@ export class SettingPage {
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
       destinationType: this.camera.DestinationType.DATA_URL
     }).then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.profileImg = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
       console.log(err);
     });
