@@ -20,41 +20,20 @@
   </div>
   <ion-item no-lines>
     <span>별점</span>
-    <span>
-      <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(1)">
-        <ion-icon name="{{stars[0]}}" class="grade-star"></ion-icon>
-      </button>
-      <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(2)">
-        <ion-icon name="{{stars[1]}}" class="grade-star"></ion-icon>
-      </button>
-      <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(3)">
-        <ion-icon name="{{stars[2]}}" class="grade-star"></ion-icon>
-      </button>
-      <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(4)">
-        <ion-icon name="{{stars[3]}}" class="grade-star"></ion-icon>
-      </button>
-      <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(5)">
-        <ion-icon name="{{stars[4]}}" class="grade-star"></ion-icon>
+    <span *ngFor="let index of [0,1,2,3,4]">
+      <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(index+1)">
+        <ion-icon name="{{stars[index]}}" class="grade-star"></ion-icon>
       </button>
     </span>
   </ion-item>
   <button ion-button (click)="openGallery()">이미지 업로드</button>
   <ng-container *ngIf="this.selectedImgUris != null">
-    <ng-container>
-      <ion-row>
-        <ion-thumbnail col-3>
-          <img src="" />
+    <ion-row *ngFor="let row of selectedImgUris;">
+      <ng-container *ngFor="let src of row">
+        <ion-thumbnail col-3 (click)="this.photoViewerUtil.openPhotoViewer(src)">
+          <img src="{{src}}"/>
         </ion-thumbnail>
-        <ion-thumbnail col-3>
-          <img src=""/>
-        </ion-thumbnail>
-        <ion-thumbnail col-3>
-          <img src=""/>
-        </ion-thumbnail>
-        <ion-thumbnail col-3>
-          <img src=""/>
-        </ion-thumbnail>
-      </ion-row>
-    </ng-container>
+      </ng-container>
+    </ion-row>
   </ng-container>
 </ion-content>
