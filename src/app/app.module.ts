@@ -27,6 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { ImagePicker } from '@ionic-native/image-picker';
+import {Http, HttpModule} from "@angular/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ImagePicker } from '@ionic-native/image-picker';
     CommentPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
