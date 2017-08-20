@@ -4,6 +4,7 @@ import { NavController, ViewController, ModalController, App  } from 'ionic-angu
 import{ TabsPage } from '../tabs/tabs';
 import{ JoinPage } from './join/join';
 import {Http, RequestOptions, Headers} from "@angular/http";
+import {StorageService} from "../../services/storage.service";
 
 @Component({
   selector: 'page-login',
@@ -14,11 +15,11 @@ export class LoginPage {
     email: string;
     password: string;
 
-  constructor(public navCtrl: NavController,
-              private viewCtrl: ViewController,
-              public modalCtrl: ModalController,
+  constructor(private viewCtrl: ViewController,
+              private modalCtrl: ModalController,
               private appCtrl: App,
-              private http: Http
+              private http: Http,
+              private storageService: StorageService
   ) {}
 
   ionViewWillEnter() {
@@ -37,12 +38,16 @@ export class LoginPage {
     let params = JSON.stringify({email : this.email, password : this.password});
     let headers = new Headers({ 'Content-Type': 'application/json'});
     this.http
-        .post("http://localhost:8080/member/signin", params, {headers:headers})
+        .post("http://192.168.0.3:8080/member/signin", params, {headers:headers})
         .subscribe(data =>{
           let result = data.json();
 
           if(result.statusCode == 200){
-            this.appCtrl.getRootNav().setRoot(TabsPage);
+            let jwt = data.headers.get("Authorization");
+
+            this.storageService.setJwt(jwt);
+            this.storageService.get("jwt");
+            // this.appCtrl.getRootNav().setRoot(TabsPage);
           }else{
             alert(result.message);
           }

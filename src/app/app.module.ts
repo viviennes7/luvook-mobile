@@ -29,6 +29,8 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { ImagePicker } from '@ionic-native/image-picker';
 import {Http, HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
+import {IonicStorageModule} from "@ionic/storage";
+import {StorageService} from "../services/storage.service";
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import {FormsModule} from "@angular/forms";
     HttpModule,
     BrowserModule,
     FormsModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -85,6 +88,7 @@ import {FormsModule} from "@angular/forms";
     ImagePicker,
     PhotoViewer,
     PhotoViewerUtil,
+    StorageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
