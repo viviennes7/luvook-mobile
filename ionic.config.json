@@ -1,6 +1,6 @@
 {
   "name": "luvook",
-  "app_id": "",
+  "app_id": "c504cb51",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
