@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import { Storage } from '@ionic/storage';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class StorageService{
@@ -10,8 +11,11 @@ export class StorageService{
   }
 
   get(key: string){
-    this.storage.get(key).then(val => {
-      alert(val);
-    });
+    return Observable.fromPromise(
+      this.storage.get(key).then(val => {
+        return val;
+      })
+    );
+
   }
 }

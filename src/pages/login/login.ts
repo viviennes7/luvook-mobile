@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, ModalController, App  } from 'ionic-angular';
+import { Observable } from 'rxjs/Rx';
 
 import{ TabsPage } from '../tabs/tabs';
 import{ JoinPage } from './join/join';
@@ -12,8 +13,8 @@ import {StorageService} from "../../services/storage.service";
 })
 export class LoginPage {
 
-    email: string;
-    password: string;
+    email: string = 'test';
+    password: string = '456552';
 
   constructor(private viewCtrl: ViewController,
               private modalCtrl: ModalController,
@@ -35,19 +36,21 @@ export class LoginPage {
       return;
     }
 
+    this.appCtrl.getRootNav().setRoot(TabsPage); //임시
+
     let params = JSON.stringify({email : this.email, password : this.password});
     let headers = new Headers({ 'Content-Type': 'application/json'});
     this.http
-        .post("http://192.168.0.3:8080/member/signin", params, {headers:headers})
+        .post("http://192.168.0.134:8080/member/signin", params, { headers:headers })
         .subscribe(data =>{
           let result = data.json();
 
           if(result.statusCode == 200){
             let jwt = data.headers.get("Authorization");
-
             this.storageService.setJwt(jwt);
-            this.storageService.get("jwt");
-            // this.appCtrl.getRootNav().setRoot(TabsPage);
+            //this.storageService.get("jwt").subscribe(data => alert("RX ::: " + data));
+
+            this.appCtrl.getRootNav().setRoot(TabsPage);
           }else{
             alert(result.message);
           }
