@@ -31,6 +31,7 @@ import {Http, HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import {IonicStorageModule} from "@ionic/storage";
 import {StorageService} from "../services/storage.service";
+import {LoginService} from "../pages/login/login.service";
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import {StorageService} from "../services/storage.service";
     PhotoViewer,
     PhotoViewerUtil,
     StorageService,
+    LoginService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
