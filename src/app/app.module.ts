@@ -30,7 +30,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import {Http, HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import {IonicStorageModule} from "@ionic/storage";
-import {StorageService} from "../services/storage.service";
+import {JwtService} from "../services/jwt.service";
 import {LoginService} from "../pages/login/login.service";
 
 @NgModule({
@@ -89,7 +89,7 @@ import {LoginService} from "../pages/login/login.service";
     ImagePicker,
     PhotoViewer,
     PhotoViewerUtil,
-    StorageService,
+    JwtService,
     LoginService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

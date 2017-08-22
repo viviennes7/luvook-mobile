@@ -5,19 +5,19 @@ import { Observable } from 'rxjs/Rx';
 import { Member } from '../datas/member';
 
 @Injectable()
-export class StorageService{
+export class JwtService{
 
   constructor(private storage: Storage){}
 
-  setJwt(jwt:string){
+  set(jwt:string){
     this.storage.set("jwt", jwt);
   }
 
-  //this.storageService.get("jwt").subscribe(data => alert("RX ::: " + data));
+  //this.jwtService.get().subscribe(data => alert("RX ::: " + data));
 
-  get(key: string){
+  get(){
     return Observable.fromPromise(
-      this.storage.get(key).then(val => {
+      this.storage.get("jwt").then(val => {
         return val;
       })
     );

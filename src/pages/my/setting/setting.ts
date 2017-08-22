@@ -8,16 +8,18 @@ import { Member } from '../../../datas/member';
 })
 export class SettingPage {
   member: Member = new Member();
+  originNickname: string;
   password: string;
   confirm: string;
   isNicknameUnique: boolean = true;
 
   constructor(public viewCtrl: ViewController,
               private camera: Camera) {
-
     this.member.profileImg = 'assets/sample/profile_ms.jpg';
     this.member.email = 'viviennes7@naver.com';
     this.member.nickname = '밍수';
+
+    this.originNickname = '밍수';
 
   }
   updateProfile() {

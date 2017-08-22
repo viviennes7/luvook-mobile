@@ -9,7 +9,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome'
 import {LoginPage} from "../pages/login/login";
 import {TimelinePage} from "../pages/timeline/timeline";
-import {StorageService} from "../services/storage.service";
 
 @Component({
   templateUrl: 'app.html'

@@ -10,7 +10,7 @@ import {LoginService} from "./login.service";
 })
 export class LoginPage {
 
-    email: string = 'test';
+    email: string = 'test@naver.com';
     password: string = '456552';
 
   constructor(private viewCtrl: ViewController,
