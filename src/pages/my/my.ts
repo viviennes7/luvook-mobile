@@ -6,6 +6,7 @@ import { DetailViewComponent } from "../../component/detailview/detailview.compo
 import { LoginPage } from '../login/login';
 
 import { PhotoViewerUtil } from '../../utils/photo-viewer';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'page-my',
@@ -20,7 +21,8 @@ export class MyPage {
               public alertCtrl: AlertController,
               public appCtrl: App,
               public params: NavParams,
-              private photoViewerUtil: PhotoViewerUtil) {
+              private photoViewerUtil: PhotoViewerUtil,
+              private storageService: StorageService) {
                 let isMe = params.get("isMe");
                 isMe === undefined ? this.isMe = true : this.isMe = false;
               }
@@ -42,6 +44,7 @@ export class MyPage {
         {
           text: 'Yes',
           handler: () =>{
+            this.storageService.setJwt(null);
             this.appCtrl.getRootNav().setRoot(LoginPage);
           }
         },

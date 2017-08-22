@@ -4,7 +4,7 @@
       Setting
     </ion-title>
     <ion-buttons start>
-      <button ion-button (click)="dismiss()">
+      <button ion-button (click)="updateProfile()">
         <ion-icon name="checkmark-circle-outline"></ion-icon>
       </button>
     </ion-buttons>
@@ -13,16 +13,17 @@
 <ion-content>
   <div padding>
     <ion-avatar class="setting-avatar" (click)="accessGallery()">
-      <img src="{{profileImg}}">
+      <img src="{{member.profileImg}}">
     </ion-avatar>
-      <ion-item>
-        <ion-input type="text" value="viviennes7@naver.com" disabled></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" placeholder="name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" placeholder="nickname"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Nickname" [(ngModel)]="member.nickname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Confirm" [(ngModel)]="confirm"></ion-input>
+    </ion-item>
+
   </div>
 </ion-content>
