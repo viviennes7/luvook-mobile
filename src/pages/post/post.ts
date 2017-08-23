@@ -3,15 +3,16 @@ import { NavController, ModalController } from 'ionic-angular';
 
 import { PostContentsPage } from './contents/contents';
 import { ItemComponent } from '../../component/item/item.component';
-
+import { BookService } from '../../services/book.service';
 @Component({
   selector: 'page-post',
   templateUrl: 'post.html'
 })
 export class PostPage {
 
-  constructor(public navCtrl: NavController,
-              public modalCtrl: ModalController) {}
+  constructor(private navCtrl: NavController,
+              private modalCtrl: ModalController,
+              private bookService: BookService) {}
 
   locateContentsPage(){
     this.navCtrl.push(PostContentsPage);

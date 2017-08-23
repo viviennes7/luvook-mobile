@@ -33,6 +33,8 @@ import {IonicStorageModule} from "@ionic/storage";
 import {JwtService} from "../services/jwt.service";
 import {LoginService} from "../pages/login/login.service";
 import {MemberService} from "../services/member.service";
+import {BookService} from "../services/book.service";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -92,6 +94,7 @@ import {MemberService} from "../services/member.service";
     JwtService,
     LoginService,
     MemberService,
+    BookService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
