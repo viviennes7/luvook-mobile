@@ -15,10 +15,10 @@
   <ion-item>
     <ion-icon name="settings" class="icon-settings" (click)="openJoinModal()" *ngIf="isMe"></ion-icon>
     <div class="avatar-left">
-      <ion-avatar (click)="this.photoViewerUtil.openPhotoViewer('assets/sample/profile_ms.jpg')">
-        <img src="assets/sample/profile_ms.jpg">
+      <ion-avatar (click)="this.photoViewerUtil.openPhotoViewer(profileImg)">
+        <img src="{{profileImg}}">
       </ion-avatar>
-      <div class="avatar-nickname">밍수</div>
+      <div class="avatar-nickname">{{nickname}}</div>
     </div>
     <div class="avatar-right-letter board-cnt">
       게시글 <span>67</span>

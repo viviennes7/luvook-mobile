@@ -20,7 +20,6 @@ export class LoginService{
 
   loginJwt(jwt: string){
     let params = "jwt="+jwt;
-    alert(params);
     this.http
         .post(HttpService.BASE_URL + "/member/signin/jwt", params, { headers:HttpService.HEADERS_BASIC})
         .subscribe(res =>{
@@ -46,7 +45,6 @@ export class LoginService{
           if(result.statusCode == 200){
             let jwt = res.headers.get("Authorization");
             let member = result.data;
-
             this.setBasicInfo(jwt, member);
 
             if(join){

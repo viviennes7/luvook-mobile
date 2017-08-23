@@ -7,13 +7,14 @@ import { LoginPage } from '../login/login';
 
 import { PhotoViewerUtil } from '../../utils/photo-viewer';
 import { JwtService } from '../../services/jwt.service';
-
+import { MemberService } from '../../services/member.service';
 @Component({
   selector: 'page-my',
   templateUrl: 'my.html'
 })
 export class MyPage {
-
+  private profileImg: string = MemberService.MY_INFO.profileImg;
+  private nickname: string = MemberService.MY_INFO.nickname;
   isMe:boolean = true;
 
   constructor(public navCtrl: NavController,

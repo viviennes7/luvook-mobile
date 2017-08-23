@@ -48,7 +48,7 @@ export class JoinPage {
         .subscribe(data =>{
           let result = data.json();
           if(result.statusCode == 200){
-            this.loginService.login(this.email, this.password,this)
+            this.loginService.login(this.email, this.password, this)
           }else{
             alert(result.message);
           }

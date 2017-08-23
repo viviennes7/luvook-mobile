@@ -1,33 +1,29 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
+
 import { Member } from '../../../datas/member';
+import {MemberService} from '../../../services/member.service';
 @Component({
   selector: 'page-setting',
   templateUrl: 'setting.html'
 })
 export class SettingPage {
-  member: Member = new Member();
-  originNickname: string;
-  password: string;
-  confirm: string;
-  isNicknameUnique: boolean = true;
+  private member: Member = new Member();
+  private password: string;
+  private confirm: string;
 
-  constructor(public viewCtrl: ViewController,
+  constructor(private viewCtrl: ViewController,
               private camera: Camera) {
-    this.member.profileImg = 'assets/sample/profile_ms.jpg';
-    this.member.email = 'viviennes7@naver.com';
-    this.member.nickname = '밍수';
-
-    this.originNickname = '밍수';
+    this.member.profileImg = MemberService.MY_INFO.profileImg;
+    this.member.email = MemberService.MY_INFO.email;
+    this.member.nickname = MemberService.MY_INFO.nickname;
 
   }
+
   updateProfile() {
     if(this.password != this.confirm){
       alert("비밀번호가 일치하지 않습니다.");
-      return;
-    }else if( !this.isNicknameUnique ){
-      alert("닉네임이 이미 존재합니다.");
       return;
     }
 
