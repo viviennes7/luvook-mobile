@@ -9,6 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome'
 import {LoginPage} from "../pages/login/login";
 import {TimelinePage} from "../pages/timeline/timeline";
+import {LoginService} from "../pages/login/login.service";
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +17,9 @@ import {TimelinePage} from "../pages/timeline/timeline";
 export class MyApp {
   rootPage:any = null;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+              private storage: Storage,
+              private loginService: LoginService) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
@@ -25,8 +28,7 @@ export class MyApp {
         if(jwt == null){
           this.rootPage = LoginPage;
         }else{
-          HttpService.AUTH = jwt;
-          this.rootPage = TabsPage;
+          loginService.loginJwt(jwt);
         }
       });
     });

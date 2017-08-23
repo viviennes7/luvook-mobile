@@ -44,7 +44,7 @@ export class JoinPage {
     let params = JSON.stringify({email : this.email, password : this.password});
 
     this.http
-        .post(HttpService.BASE_URL + "/member/signup", params, { headers:HttpService.BASIC_HEADERS })
+        .post(HttpService.BASE_URL + "/member/signup", params, { headers:HttpService.HEADERS_JSON })
         .subscribe(data =>{
           let result = data.json();
           if(result.statusCode == 200){
