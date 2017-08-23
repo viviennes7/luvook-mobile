@@ -32,7 +32,7 @@ import {FormsModule} from "@angular/forms";
 import {IonicStorageModule} from "@ionic/storage";
 import {JwtService} from "../services/jwt.service";
 import {LoginService} from "../pages/login/login.service";
-
+import {MemberService} from "../services/member.service";
 @NgModule({
   declarations: [
     MyApp,
@@ -91,6 +91,7 @@ import {LoginService} from "../pages/login/login.service";
     PhotoViewerUtil,
     JwtService,
     LoginService,
+    MemberService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
