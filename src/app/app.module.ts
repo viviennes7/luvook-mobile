@@ -34,6 +34,7 @@ import {JwtService} from "../services/jwt.service";
 import {LoginService} from "../pages/login/login.service";
 import {MemberService} from "../services/member.service";
 import {BookService} from "../services/book.service";
+import {SettingService} from "../pages/my/setting.service";
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import {BookService} from "../services/book.service";
     LoginService,
     MemberService,
     BookService,
+    SettingService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

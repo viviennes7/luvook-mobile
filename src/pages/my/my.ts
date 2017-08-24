@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { NavController, ModalController, AlertController, App,NavParams } from 'ionic-angular';
 
 import { SettingPage } from './setting/setting';
@@ -8,25 +8,26 @@ import { LoginPage } from '../login/login';
 import { PhotoViewerUtil } from '../../utils/photo-viewer';
 import { JwtService } from '../../services/jwt.service';
 import { MemberService } from '../../services/member.service';
+import {SettingService} from './setting.service';
+
 @Component({
   selector: 'page-my',
   templateUrl: 'my.html'
 })
 export class MyPage {
-  private profileImg: string = MemberService.MY_INFO.profileImg;
-  private nickname: string = MemberService.MY_INFO.nickname;
   isMe:boolean = true;
 
-  constructor(public navCtrl: NavController,
-              public modalCtrl: ModalController,
+  constructor(public modalCtrl: ModalController,
               public alertCtrl: AlertController,
               public appCtrl: App,
               public params: NavParams,
-              private photoViewerUtil: PhotoViewerUtil,
-              private jwtService: JwtService ) {
+              private jwtService: JwtService,
+              private memberService: MemberService,
+              private settingService: SettingService) {
                 let isMe = params.get("isMe");
                 isMe === undefined ? this.isMe = true : this.isMe = false;
-              }
+                this.settingService.initializeMyPage();
+  }
 
   openJoinModal() {
     let modal = this.modalCtrl.create(SettingPage);

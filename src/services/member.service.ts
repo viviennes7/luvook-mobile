@@ -4,7 +4,7 @@ import {Member} from '../datas/member';
 
 @Injectable()
 export class MemberService{
-  static MY_INFO: Member;
+  myInfo: Member;
 
   constructor(){}
 
