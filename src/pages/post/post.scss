@@ -27,8 +27,20 @@ page-post {
   }
 
   .select-book{
-    margin: 0px !important;
+    margin: 0px;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .item-md h2{
+    font-size: 1.4rem;
+  }
+
+  .item-md p{
+    font-size: 1.2rem;
+  }
+
+  ion-label{
+    white-space: initial;
   }
 }

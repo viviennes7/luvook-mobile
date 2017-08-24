@@ -1,18 +1,24 @@
 import {Injectable} from "@angular/core";
 import {Http, RequestOptions, Headers} from "@angular/http";
 import { HttpService } from "./http.service";
+import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class BookService{
 
   constructor(private http: Http){}
 
-  test(){
-    this.http
-        .get('http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbminsoo61392239004&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20070901', { headers:HttpService.HEADERS_BASIC})
-        .subscribe(res =>{
-          //let result = res.json();
-          console.log(res);
-        });
+  search(query:string, start:number){
+    let params = "?start=" + start + "&maxResults=10"
+    let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
+    return this.http
+               .get(HttpService.BASE_URL + '/books/TITLE/' + query + params,  {headers:headers});
+  }
+
+  get(itemId){
+    let params = "?itemId=" + itemId;
+    let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
+    return this.http
+               .get(HttpService.BASE_URL + '/books' + params,  {headers:headers});
   }
 
 }
