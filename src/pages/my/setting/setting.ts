@@ -1,23 +1,31 @@
 import { Component } from '@angular/core';
+import {Http, RequestOptions, Headers} from "@angular/http";
 import { ViewController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 
 import { Member } from '../../../datas/member';
+import {MyPage} from '../my';
 import {MemberService} from '../../../services/member.service';
+import {HttpService} from '../../../services/http.service';
+import {SettingService} from '../setting.service';
+
 @Component({
   selector: 'page-setting',
   templateUrl: 'setting.html'
 })
 export class SettingPage {
   private member: Member = new Member();
-  private password: string;
-  private confirm: string;
+  private password: string = "";
+  private confirm: string = "";
 
   constructor(private viewCtrl: ViewController,
-              private camera: Camera) {
-    this.member.profileImg = MemberService.MY_INFO.profileImg;
-    this.member.email = MemberService.MY_INFO.email;
-    this.member.nickname = MemberService.MY_INFO.nickname;
+              private camera: Camera,
+              private http: Http,
+              private memberService: MemberService,
+              private settingService: SettingService) {
+    this.member.profileImg = this.memberService.myInfo.profileImg;
+    this.member.email = this.memberService.myInfo.email;
+    this.member.nickname = this.memberService.myInfo.nickname;
 
   }
 
@@ -27,7 +35,26 @@ export class SettingPage {
       return;
     }
 
-    this.viewCtrl.dismiss();
+
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('nickname', this.member.nickname);
+    urlSearchParams.append('password', this.password);
+    let params = urlSearchParams.toString()
+    let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
+
+    this.http
+        .put(HttpService.BASE_URL + "/member/info", params, { headers: headers})
+        .subscribe(res =>{
+          let result = res.json();
+          if(result.statusCode == 200){
+            this.memberService.myInfo.nickname = this.member.nickname;
+            this.settingService.initializeMyPage();
+            this.viewCtrl.dismiss();
+          }else{
+            alert(result.message);
+          }
+        });
+
   }
 
   accessGallery() {
