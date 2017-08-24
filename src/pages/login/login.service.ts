@@ -19,9 +19,10 @@ export class LoginService{
               private memberService: MemberService){}
 
   loginJwt(jwt: string){
-    let params = "jwt="+jwt;
+    let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":jwt});
+
     this.http
-        .post(HttpService.BASE_URL + "/member/signin/jwt", params, { headers:HttpService.HEADERS_BASIC})
+        .post(HttpService.BASE_URL + "/member/signin/jwt", null, { headers:headers })
         .subscribe(res =>{
           let result = res.json();
           if(result.statusCode == 200){
@@ -36,10 +37,13 @@ export class LoginService{
   }
 
   login(email:string, password:string, join:JoinPage){
-    let params = JSON.stringify({email : email, password : password});
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('email', email);
+    urlSearchParams.append('password', password);
+    let params = urlSearchParams.toString()
 
     this.http
-        .post(HttpService.BASE_URL + "/member/signin", params, { headers:HttpService.HEADERS_JSON })
+        .post(HttpService.BASE_URL + "/member/signin", params, { headers:HttpService.HEADERS_BASIC })
         .subscribe(res =>{
           let result = res.json();
           if(result.statusCode == 200){
@@ -61,6 +65,6 @@ export class LoginService{
   private setBasicInfo(jwt:string, member:Member){
     this.jwtService.set(jwt);
     HttpService.AUTH = jwt;
-    MemberService.MY_INFO = member;
+    this.memberService.myInfo = member;
   }
 }
