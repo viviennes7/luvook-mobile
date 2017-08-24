@@ -7,9 +7,7 @@
 </ion-header>
 
 <ion-content>
-
   <ion-searchbar placeholder = "search" animated = true (keyup.enter)="search(true)" [(ngModel)]="query"></ion-searchbar>
-
 
     <ion-list>
       <ion-item *ngFor="let book of books">
@@ -22,10 +20,10 @@
           <ion-icon ios="ios-paper-plane-outline" md="md-paper-plane" clear item-end large></ion-icon>
         </button>
       </ion-item>
-      <ion-item *ngIf="books.lenght == 0">
-        검색결과가 없습니다.
-      </ion-item>
 
+      <ion-item *ngIf="books.length == 0">
+        <h2 class="no-item" text-center>검색결과가 없습니다.</h2>
+      </ion-item>
     </ion-list>
 
     <ion-infinite-scroll *ngIf="isMore == true" (ionInfinite)="more($event)" >
