@@ -24,6 +24,7 @@ export class PostPage {
               private bookService: BookService) {
 
     this.loading = this.loadingCtrl.create();
+    this.getBestseller();
   }
 
   search(){
@@ -49,11 +50,24 @@ export class PostPage {
         }
       });
 
-      if(result.length < 10){
+      if(result.length < 20){
         this.isMore = false;
       }
       this.page++;
     });
+  }
+
+  getBestseller(){
+    let randomPage = Math.floor((Math.random() * 5) + 1);
+
+    this.bookService.searchByType(randomPage).subscribe(res =>{
+      let result = res.json().item;
+      result.forEach((item, index) =>{
+        this.books.push(item);
+      });
+
+      this.isMore = false;
+    })
   }
 
   locateContentsPage(book){

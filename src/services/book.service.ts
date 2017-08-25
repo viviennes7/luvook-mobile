@@ -7,8 +7,8 @@ export class BookService{
 
   constructor(private http: Http){}
 
-  search(query:string, start:number){
-    let params = "?start=" + start + "&maxResults=10"
+  search(query:string, page:number){
+    let params = "?start=" + page + "&maxResults=20"
     let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
     return this.http
                .get(HttpService.BASE_URL + '/books/TITLE/' + query + params,  {headers:headers});
@@ -19,6 +19,13 @@ export class BookService{
     let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
     return this.http
                .get(HttpService.BASE_URL + '/books/' + itemId + params,  {headers:headers});
+  }
+
+  searchByType(page:number){
+    let params = "?start=" + page + "&maxResults=20"
+    let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
+    return this.http
+               .get(HttpService.BASE_URL + '/BESTSELLER/books' + params,  {headers:headers});
   }
 
 }
