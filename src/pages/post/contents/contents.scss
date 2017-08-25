@@ -3,10 +3,12 @@ page-post-contents {
     height: 70px;
   }
 
-  [contenteditable=true]:empty:before {
-    content: attr(placeholder);
+  textarea{
+    border: none;
+    outline: none;
+    resize: none;
     display: block;
-    color:#b3b3b3;
+    width: 100%
   }
 
   .grade-star{

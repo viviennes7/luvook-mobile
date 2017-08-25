@@ -1,10 +1,13 @@
 import { Component, ElementRef, Renderer } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
-
+import {Http, RequestOptions, Headers} from "@angular/http";
+import { NavController, ModalController, NavParams } from 'ionic-angular';
+import{ ImagePicker } from '@ionic-native/image-picker';
 import{ PostPage } from '../post';
 import{ ImagePickerPage } from '../../image-picker/image-picker';
-import{ ImagePicker } from '@ionic-native/image-picker';
 
+import {Book} from '../../../datas/book';
+import {BookBoard} from '../../../datas/book-board';
+import {HttpService} from '../../../services/http.service';
 import { PhotoViewerUtil } from '../../../utils/photo-viewer';
 
 @Component({
@@ -12,30 +15,48 @@ import { PhotoViewerUtil } from '../../../utils/photo-viewer';
   templateUrl: 'contents.html'
 })
 export class PostContentsPage {
+  private contents: string;
+  private book: Book;
+  private stars: string[] = [];
+  private starCount: number;
+  private selectedImgUris = new Array();
 
-  stars: string[] = [
-    'star-outline', 'star-outline', 'star-outline', 'star-outline', 'star-outline'
-  ];
-  selectedImgUris = new Array();
-
-  constructor(public navCtrl: NavController,
-              public modalCtrl: ModalController,
+  constructor(private navCtrl: NavController,
+              private modalCtrl: ModalController,
               private elementRef:ElementRef,
               private renderer:Renderer,
               private imagePicker: ImagePicker,
-              private photoViewerUtil: PhotoViewerUtil
-              ) {}
-
-  ngAfterViewInit() {
-    this.renderer
-      .listen(this.elementRef.nativeElement.querySelector('.post-contents .item-inner'), 'click', () => {
-        let textarea = this.elementRef.nativeElement.querySelector('.contents-textarea');
-        textarea.focus();
-      });
+              private photoViewerUtil: PhotoViewerUtil,
+              private params: NavParams,
+              private http: Http) {
+    this.book = params.get("book");
+    this.initStar();
   }
 
   saveBoard(){
-    this.navCtrl.setRoot(PostPage);
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('title', this.book.title);
+    urlSearchParams.append('categoryId', this.book.categoryId);
+    urlSearchParams.append('cover', this.book.cover);
+    urlSearchParams.append('isbn', this.book.isbn);
+    urlSearchParams.append('isbn13', this.book.isbn13);
+    urlSearchParams.append('contents', this.contents);
+    urlSearchParams.append('grade', this.starCount.toString());
+
+    let params = urlSearchParams.toString()
+
+    let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
+
+    this.http
+        .post(HttpService.BASE_URL + "/board/book", params, { headers:headers })
+        .subscribe(res =>{
+          let result = res.json();
+          if(result.statusCode == 200){
+            this.navCtrl.setRoot(PostPage);
+          }else{
+            alert(result.message);
+          }
+        });
   }
 
   openGallery(): void {
@@ -71,6 +92,7 @@ export class PostContentsPage {
 
   onClickStar(num){
     this.initStar();
+    this.starCount = num;
 
     for(let i=0; i<num; i++){
       this.stars[i] = 'star';

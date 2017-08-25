@@ -14,14 +14,15 @@
 
   <div class="post-contents">
     <ion-item no-lines>
-      <img src="assets/sample/book3.jpg" item-start/>
-      <div class="contents-textarea" contentEditable="true" placeholder="contents..."></div>
+      <img src="{{book.cover}}" item-start/>
+      <textarea autosize placeholder="contents..." [(ngModel)]="contents">
+      </textarea>
     </ion-item>
   </div>
   <ion-item no-lines>
     <span>별점</span>
     <span *ngFor="let index of [0,1,2,3,4]">
-      <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(index+1)">
+      <button ion-button icon-left clear class="star-wrapper" (click)="onClickStar(index+1);">
         <ion-icon name="{{stars[index]}}" class="grade-star"></ion-icon>
       </button>
     </span>
