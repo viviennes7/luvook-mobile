@@ -35,6 +35,7 @@ import {JwtService} from "../services/jwt.service";
 import {LoginService} from "../pages/login/login.service";
 import {MemberService} from "../services/member.service";
 import {BookService} from "../services/book.service";
+import {BoardService} from "../services/board.service";
 import {SettingService} from "../pages/my/setting.service";
 import {CommaPipe} from "../pipes/comma.pipe";
 
@@ -101,6 +102,7 @@ import {CommaPipe} from "../pipes/comma.pipe";
     MemberService,
     BookService,
     SettingService,
+    BoardService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

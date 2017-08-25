@@ -4,5 +4,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-<page-board></page-board>
+  <ng-container *ngFor="let bookBoard of bookBoards">
+    <board [bookBoard]="bookBoard"></board>
+  </ng-container>
 </ion-content>

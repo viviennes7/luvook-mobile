@@ -4,6 +4,6 @@ export class BookBoard extends Board{
   title: string;
   categoryId: number;
   cover: string;
-  isbn: number;
-  isbn13: number;
+  isbn: string;
+  isbn13: string;
 }
