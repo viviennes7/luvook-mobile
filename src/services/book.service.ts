@@ -15,10 +15,10 @@ export class BookService{
   }
 
   get(itemId){
-    let params = "?itemId=" + itemId;
+    let params = "?itemIdType=ISBN13" ;
     let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
     return this.http
-               .get(HttpService.BASE_URL + '/books' + params,  {headers:headers});
+               .get(HttpService.BASE_URL + '/books/' + itemId + params,  {headers:headers});
   }
 
 }

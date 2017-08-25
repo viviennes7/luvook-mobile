@@ -11,12 +11,14 @@
 
     <ion-list>
       <ion-item *ngFor="let book of books">
-        <ion-thumbnail item-start (click)="openItemModal()">
+        <ion-thumbnail item-start (click)="openItemModal(book.isbn13)">
           <img src="{{book.cover}}">
         </ion-thumbnail>
-        <h2 class="title">{{book.title}}</h2>
-        <p class="subinfo">{{book.publisher}} / {{book.author}}</p>
-        <button ion-button clear item-end default class="btn-write" class="select-book" (click)="locateContentsPage()">
+        <div (click)="openItemModal(book.isbn13)">
+          <h2 class="title">{{book.title}}</h2>
+          <p class="subinfo">{{book.publisher}} / {{book.author}}</p>
+        </div>
+        <button ion-button clear item-end default class="btn-write" class="select-book" (click)="locateContentsPage(book)">
           <ion-icon ios="ios-paper-plane-outline" md="md-paper-plane" clear item-end large></ion-icon>
         </button>
       </ion-item>

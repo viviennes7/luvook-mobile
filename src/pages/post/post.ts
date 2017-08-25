@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, LoadingController, Loading } from 'ionic-angular';
 
 import { PostContentsPage } from './contents/contents';
 import { ItemComponent } from '../../component/item/item.component';
@@ -16,10 +16,15 @@ export class PostPage {
   private page: number = 1;
   private books: Array<Book> = [];
   private isMore: boolean = true;
+  private loading: Loading;
 
   constructor(private navCtrl: NavController,
               private modalCtrl: ModalController,
-              private bookService: BookService) {}
+              private loadingCtrl: LoadingController,
+              private bookService: BookService) {
+
+    this.loading = this.loadingCtrl.create();
+  }
 
   search(){
     this.page = 1;
@@ -33,8 +38,10 @@ export class PostPage {
   }
 
   getBooks(infiniteScroll?){
+
     this.bookService.search(this.query, this.page).subscribe(res =>{
       let result = res.json().item;
+
       result.forEach((item, index) =>{
         this.books.push(item);
         if(infiniteScroll){
@@ -45,17 +52,16 @@ export class PostPage {
       if(result.length < 10){
         this.isMore = false;
       }
-
       this.page++;
     });
   }
 
-  locateContentsPage(){
-    this.navCtrl.push(PostContentsPage);
+  locateContentsPage(book){
+    this.navCtrl.push(PostContentsPage, {book:book});
   }
 
-  openItemModal(){
-    let modal = this.modalCtrl.create(ItemComponent);
+  openItemModal(isbn13){
+    let modal = this.modalCtrl.create(ItemComponent, { isbn13:isbn13 } );
     modal.present();
   }
 }
