@@ -5,17 +5,22 @@ import {DetailViewComponent} from "../../component/detailview/detailview.compone
 import {MyPage} from "../../pages/my/my";
 import {ItemComponent} from '../../component/item/item.component';
 import {CommentPage} from '../../pages/comment/comment';
+import {BookBoard} from '../../datas/book-board';
 
 @Component({
-  selector: 'page-board',
+  selector: 'board',
   templateUrl: 'board.component.html'
 })
 export class BoardComponent {
 
-  @Input() isDetail: boolean;
-  isClickedHeart :boolean = false;
-  heartShape : string = 'heart-outline';
-  heartCount : number = 12;
+  @Input()
+  isDetail: boolean;
+
+  @Input()
+  bookBoard: BookBoard;
+
+  private isClickedHeart :boolean = false;
+  private heartShape : string = 'heart-outline';
 
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
@@ -38,7 +43,7 @@ export class BoardComponent {
   }
 
   openItemModal(){
-    let modal = this.modalCtrl.create(ItemComponent);
+    let modal = this.modalCtrl.create(ItemComponent, { isbn13:this.bookBoard.isbn13 });
     modal.present();
   }
 
@@ -55,11 +60,11 @@ export class BoardComponent {
     if(this.isClickedHeart){
       this.isClickedHeart = false
       this.heartShape = 'heart-outline';
-      this.heartCount--;
+      this.bookBoard.heartCount--;
     }else{
       this.isClickedHeart = true;
       this.heartShape = 'heart';
-      this.heartCount++;
+      this.bookBoard.heartCount++;
     }
   }
 }
