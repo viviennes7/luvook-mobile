@@ -16,6 +16,7 @@ export class PostPage {
   private page: number = 1;
   private books: Array<Book> = [];
   private isMore: boolean = true;
+  private isVisibleNoItem: boolean = false;
   private loading: Loading;
 
   constructor(private navCtrl: NavController,
@@ -34,11 +35,8 @@ export class PostPage {
     this.isMore = true;
   }
 
-  more(infiniteScroll){
-    this.getBooks(infiniteScroll);
-  }
-
   getBooks(infiniteScroll?){
+    this.isVisibleNoItem = false;
 
     this.bookService.search(this.query, this.page).subscribe(res =>{
       let result = res.json().item;
@@ -53,6 +51,7 @@ export class PostPage {
       if(result.length < 20){
         this.isMore = false;
       }
+      this.isVisibleNoItem = true;
       this.page++;
     });
   }
@@ -67,6 +66,7 @@ export class PostPage {
       });
 
       this.isMore = false;
+      this.isVisibleNoItem = true;
     })
   }
 

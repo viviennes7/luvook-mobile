@@ -23,12 +23,12 @@
         </button>
       </ion-item>
 
-      <ion-item *ngIf="books.length == 0">
+      <ion-item *ngIf="books.length == 0 && isVisibleNoItem">
         <h2 class="no-item" text-center>검색결과가 없습니다.</h2>
       </ion-item>
     </ion-list>
 
-    <ion-infinite-scroll *ngIf="isMore == true" (ionInfinite)="more($event)" >
+    <ion-infinite-scroll *ngIf="isMore == true" (ionInfinite)="getBooks($event)" >
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
 
