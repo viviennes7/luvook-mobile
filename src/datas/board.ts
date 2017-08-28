@@ -8,6 +8,7 @@ export class Board {
   commentCount: number;
   startCount: number;
   isClickedHeart: boolean;
+  imgs: Array<string> = [];
   regDate: string;
   modDate: string;
 }

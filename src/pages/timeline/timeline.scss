@@ -18,7 +18,7 @@ page-timeline {
   .scroll-content{
     background-color: #eee;
   }
-  
+
   .timeline-book{
     width: auto;
     margin: auto;
@@ -30,5 +30,9 @@ page-timeline {
 
   .clicked-heart{
     color: red !important;
+  }
+
+  ion-content.has-refresher > .scroll-content{
+    background-color: rgba(0, 0, 0, 0.05);
   }
 }

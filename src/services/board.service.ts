@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {Http, RequestOptions, Headers} from "@angular/http";
-import { HttpService } from "./http.service";
-import { Observable } from 'rxjs/Rx';
+import {Headers, Http} from "@angular/http";
+import {HttpService} from "./http.service";
+
 @Injectable()
 export class BoardService{
   constructor(private http: Http){}

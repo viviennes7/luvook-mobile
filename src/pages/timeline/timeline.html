@@ -4,7 +4,13 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ng-container *ngFor="let bookBoard of bookBoards">
     <board [bookBoard]="bookBoard"></board>
   </ng-container>
+  <ion-infinite-scroll *ngIf="isMore == true" (ionInfinite)="getBookBoards(null, $event);" >
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

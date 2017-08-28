@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, ViewController, ModalController} from 'ionic-angular';
+import {NavController, ViewController, ModalController, NavParams} from 'ionic-angular';
 
 import {ItemComponent} from '../item/item.component';
 import {BookBoard} from '../../datas/book-board';
@@ -10,10 +10,13 @@ import {BookBoard} from '../../datas/book-board';
 })
 export class DetailViewComponent {
 
-  //bookBoard: BookBoard;
+  bookBoard: BookBoard;
 
-  constructor(public viewCtrl: ViewController,
-              public modalCtrl: ModalController) {}
+  constructor(private viewCtrl: ViewController,
+              private modalCtrl: ModalController,
+              private params: NavParams) {
+    this.bookBoard = params.get("bookBoard");
+  }
 
   dismiss() {
     this.viewCtrl.dismiss();
