@@ -1,8 +1,9 @@
 <ion-footer>
   <ion-toolbar>
     <ion-item no-lines no-padding>
-      <div class="contents-textarea" contentEditable="true" placeholder="comment..." class="comment-write"></div>
-      <button ion-button clear item-end default class="btn-write">
+      <textarea placeholder="contents..." rows="1" [(ngModel)]="contents">
+      </textarea>
+      <button ion-button clear item-end default class="btn-write" (click)="saveComment()">
         <ion-icon ios="ios-paper-plane-outline" md="md-paper-plane"></ion-icon>
       </button>
     </ion-item>

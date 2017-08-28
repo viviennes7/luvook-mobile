@@ -1,7 +1,7 @@
 <ion-item>
   <ion-avatar item-start (click)="openHomeModal()">
-    <img src="assets/sample/profile_ms.jpg">
+    <img src="{{comment.member.profileImg}}">
   </ion-avatar>
-  <h2>Cher</h2>
-  <p class="comment-contents">좋은글이네요, 좋은 정보 감사합니다. 덕분에 좋은 경험을 가졌습니다.</p>
+  <h2>{{comment.member.nickname}}</h2>
+  <p class="comment-contents">{{comment.contents}}</p>
 </ion-item>
