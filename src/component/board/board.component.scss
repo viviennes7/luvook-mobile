@@ -35,4 +35,10 @@ board {
     margin: auto;
     max-height: 230px;
   }
+
+  ion-card-content{
+    padding-bottom: 16px !important;
+    padding-top: 16px !important;
+  }
+
 }

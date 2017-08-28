@@ -28,13 +28,13 @@ export class BoardComponent {
 
   openDetailViewModal(){
     if(!this.isDetail){
-      let modal = this.modalCtrl.create(DetailViewComponent);
+      let modal = this.modalCtrl.create(DetailViewComponent,{bookBoard:this.bookBoard});
       modal.present();
     }
   }
 
   openHomeModal(){
-    let modal = this.modalCtrl.create(MyPage, { isMe :false } );
+    let modal = this.modalCtrl.create(MyPage, { isMe :false, member:this.bookBoard.member } );
     modal.present();
   }
 
@@ -48,7 +48,7 @@ export class BoardComponent {
   }
 
   openCommentModal(){
-    let modal = this.modalCtrl.create(CommentPage);
+    let modal = this.modalCtrl.create(CommentPage, {boardId: this.bookBoard.boardId});
     modal.present();
   }
 

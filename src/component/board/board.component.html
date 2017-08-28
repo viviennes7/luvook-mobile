@@ -1,18 +1,16 @@
 <ion-card>
   <ion-item>
-    <!-- (click)="openHomeModal()" -->
-    <ion-avatar item-start >
+    <ion-avatar item-start (click)="openHomeModal()" >
       <img src="{{bookBoard.member.profileImg}}">
     </ion-avatar>
-    <!-- (click)="openHomeModal()" -->
-    <h2 >{{bookBoard.member.nickname}}</h2>
+    <h2 (click)="openHomeModal()" >{{bookBoard.member.nickname}}</h2>
     <p>{{bookBoard.regDate}}</p>
     <img src="{{bookBoard.cover}}" item-end style="height:55px; width:auto;" (click)="openItemModal()"/>
   </ion-item>
 
 
   <!-- (click)="openDetailViewModal()" -->
-  <ion-slides pager (click)="openDetailViewModal()">
+  <ion-slides pager (click)="openDetailViewModal()" *ngIf="bookBoard.imgs">
     <ion-slide>
       <img src="assets/sample/book1.jpg">
     </ion-slide>
@@ -24,7 +22,7 @@
     </ion-slide>
   </ion-slides>
 
-  <ion-card-content (click)="openDetailViewModal()">
+  <ion-card-content (click)="openDetailViewModal()" >
     <p>{{bookBoard.contents}}</p>
   </ion-card-content>
 
@@ -38,7 +36,7 @@
     <ion-col class="card-bottom-col">
       <button ion-button icon-left clear small (click)="openCommentModal()">
         <ion-icon name="text"></ion-icon>
-        <div>4</div>
+        <div>{{bookBoard.commentCount}}</div>
       </button>
     </ion-col>
     <ion-col class="card-bottom-col">
