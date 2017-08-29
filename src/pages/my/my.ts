@@ -29,7 +29,8 @@ export class MyPage {
               private jwtService: JwtService,
               private memberService: MemberService,
               private settingService: SettingService,
-              private boardService: BoardService) {
+              private boardService: BoardService,
+              private photoViewerUtil: PhotoViewerUtil) {
     let isMe = params.get("isMe");
     isMe === undefined ? this.isMe = true : this.isMe = false;
     this.settingService.initializeMyPage();
@@ -55,6 +56,10 @@ export class MyPage {
     modal.present();
   }
 
+  openPhotoViewer(){
+    this.photoViewerUtil.openPhotoViewer(this.member.profileImg);
+  }
+
   getBoardsByMember(){
     this.boardService.getBoardsByMember().subscribe(res => {
       let result = res.json();
@@ -67,7 +72,7 @@ export class MyPage {
         }else{
           rowCount = (dataLength/4) + 1;
         }
-        rowCount = Math.round(rowCount);
+        rowCount = Math.floor(rowCount);
         this.bookBoards = new Array();
         for(let i = 0; i < rowCount; i++){
           let rowAry = new Array();
@@ -80,7 +85,6 @@ export class MyPage {
           }
           this.bookBoards[i] = rowAry;
         }
-        // this.bookBoards.push(item);
       }else{
         alert(result.message);
       }

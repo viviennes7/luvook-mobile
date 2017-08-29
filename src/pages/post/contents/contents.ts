@@ -15,10 +15,10 @@ import { PhotoViewerUtil } from '../../../utils/photo-viewer';
   templateUrl: 'contents.html'
 })
 export class PostContentsPage {
-  private contents: string;
+  private contents: string = "";
   private book: Book;
   private stars: string[] = [];
-  private starCount: number;
+  private starCount: number = 0;
   private selectedImgUris = new Array();
 
   constructor(private navCtrl: NavController,
@@ -34,6 +34,11 @@ export class PostContentsPage {
   }
 
   saveBoard(){
+    if(this.contents == ""){
+      alert("내용을 입력해주세요.");
+      return;
+    }
+
     let urlSearchParams = new URLSearchParams();
     urlSearchParams.append('title', this.book.title);
     urlSearchParams.append('categoryId', this.book.categoryId);
@@ -72,7 +77,7 @@ export class PostContentsPage {
         }else{
           rowCount = (result.length/4) + 1;
         }
-        rowCount = Math.round(rowCount);
+        rowCount = Math.floor(rowCount);
         this.selectedImgUris = new Array();
         for(let i = 0; i < rowCount; i++){
           let rowAry = new Array();

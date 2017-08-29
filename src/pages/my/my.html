@@ -15,7 +15,7 @@
   <ion-item>
     <ion-icon name="settings" class="icon-settings" (click)="openSettingModal()" *ngIf="isMe"></ion-icon>
     <div class="avatar-left">
-      <ion-avatar (click)="this.photoViewerUtil.openPhotoViewer(profileImg)">
+      <ion-avatar (click)="openPhotoViewer();">
         <img src="{{member.profileImg}}">
       </ion-avatar>
       <div class="avatar-nickname">{{member.nickname}}</div>

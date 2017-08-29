@@ -29,6 +29,11 @@ export class PostPage {
   }
 
   search(){
+    if(this.query == ""){
+      alert("검색어를 입력해주세요.");
+      return;
+    }
+    
     this.page = 1;
     this.books = [];
     this.getBooks();
