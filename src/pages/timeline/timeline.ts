@@ -27,7 +27,7 @@ export class TimelinePage {
   }
 
   getBookBoards(refresher?, infiniteScroll?){
-    this.boardService.getBookBoards(this.page).subscribe(res =>{
+    this.boardService.getBoards(this.page).subscribe(res =>{
       let result = res.json();
 
       if(result.statusCode == 200) {

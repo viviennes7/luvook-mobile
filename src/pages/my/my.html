@@ -13,7 +13,7 @@
 
 <ion-content>
   <ion-item>
-    <ion-icon name="settings" class="icon-settings" (click)="openJoinModal()" *ngIf="isMe"></ion-icon>
+    <ion-icon name="settings" class="icon-settings" (click)="openSettingModal()" *ngIf="isMe"></ion-icon>
     <div class="avatar-left">
       <ion-avatar (click)="this.photoViewerUtil.openPhotoViewer(profileImg)">
         <img src="{{member.profileImg}}">
@@ -31,18 +31,9 @@
     </div>
   </ion-item>
   <hr/>
-  <ion-row>
-    <ion-thumbnail col-3 (click)="openDetailViewModal()">
-      <img src="assets/sample/book1.jpg">
-    </ion-thumbnail>
-    <ion-thumbnail col-3>
-      <img src="assets/sample/book2.jpg">
-    </ion-thumbnail>
-    <ion-thumbnail col-3>
-      <img src="assets/sample/book3.jpg">
-    </ion-thumbnail>
-    <ion-thumbnail col-3>
-      <img src="assets/sample/book1.jpg">
+  <ion-row *ngFor="let row of bookBoards">
+    <ion-thumbnail *ngFor="let item of row" col-3 (click)="openDetailViewModal(item)" >
+      <img src="{{item.cover}}">
     </ion-thumbnail>
   </ion-row>
 </ion-content>
