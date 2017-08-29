@@ -3,6 +3,7 @@ import {Content, NavController, NavParams} from 'ionic-angular';
 import {BoardComment} from "../../datas/board-comment";
 import {HttpService} from "../../services/http.service";
 import {Http, Headers} from "@angular/http";
+import {BoardCommentService} from "../../services/board-comment.service";
 
 @Component({
   selector: 'page-comment',
@@ -16,15 +17,14 @@ export class CommentPage {
   comments: Array<BoardComment> = [];
 
   constructor(private http: Http,
-              private params: NavParams) {
+              private params: NavParams,
+              private commentService: BoardCommentService) {
     this.boardId = params.get("boardId");
     this.getComments();
   }
 
   getComments(){
-    let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
-    this.http
-        .get(HttpService.BASE_URL +/board/ + this.boardId + "/comment", {headers:headers})
+    this.commentService.getComments(this.boardId)
         .subscribe(res =>{
           let result = res.json();
           if(result.statusCode == 200){
@@ -39,10 +39,9 @@ export class CommentPage {
 
   reload(comment){
     this.comments.push(comment);
-    this.content.scrollToBottom()
 
-    //todo: 아래코드 오작동!
-    setTimeout(this.content.scrollToBottom(), 2 * 100);
+    //todo: 댓글 달고난뒤에 내릴것!
+    this.content.scrollToBottom();
   }
 
 }

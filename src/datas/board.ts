@@ -7,7 +7,7 @@ export class Board {
   heartCount: number;
   commentCount: number;
   startCount: number;
-  isClickedHeart: boolean;
+  isClickedHeart: boolean = false;
   imgs: Array<string> = [];
   regDate: string;
   modDate: string;

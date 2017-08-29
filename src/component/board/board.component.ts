@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { NavController, ModalController, ViewController } from 'ionic-angular';
+import {Component, Input} from '@angular/core';
+import {ModalController, ViewController} from 'ionic-angular';
 
 import {DetailViewComponent} from "../../component/detailview/detailview.component";
 import {MyPage} from "../../pages/my/my";
 import {ItemComponent} from '../../component/item/item.component';
 import {CommentPage} from '../../pages/comment/comment';
 import {BookBoard} from '../../datas/book-board';
+import {BoardService} from "../../services/board.service";
 
 @Component({
   selector: 'board',
@@ -19,12 +20,19 @@ export class BoardComponent {
   @Input()
   bookBoard: BookBoard;
 
-  private isClickedHeart :boolean = false;
   private heartShape : string = 'heart-outline';
 
-  constructor(public navCtrl: NavController,
-              public modalCtrl: ModalController,
-              public viewCtrl: ViewController) {}
+  constructor(private modalCtrl: ModalController,
+              private viewCtrl: ViewController,
+              private boardService: BoardService) {}
+
+  ngOnInit() {
+    if(this.bookBoard.isClickedHeart){
+      this.heartShape = 'heart';
+    }else{
+      this.heartShape = 'heart-outline';
+    }
+  }
 
   openDetailViewModal(){
     if(!this.isDetail){
@@ -57,14 +65,21 @@ export class BoardComponent {
   }
 
   clickHeart(){
-    if(this.isClickedHeart){
-      this.isClickedHeart = false
-      this.heartShape = 'heart-outline';
-      this.bookBoard.heartCount--;
-    }else{
-      this.isClickedHeart = true;
-      this.heartShape = 'heart';
-      this.bookBoard.heartCount++;
-    }
+    this.boardService.toggleHeart(this.bookBoard.boardId).subscribe(res =>{
+      let result = res.json();
+      if(result.statusCode == 200){
+        if(this.bookBoard.isClickedHeart){
+          this.bookBoard.isClickedHeart = false;
+          this.heartShape = 'heart-outline';
+          this.bookBoard.heartCount--;
+        }else{
+          this.bookBoard.isClickedHeart = true;
+          this.heartShape = 'heart';
+          this.bookBoard.heartCount++;
+        }
+      }else{
+        alert(result.message);
+      }
+    });
   }
 }

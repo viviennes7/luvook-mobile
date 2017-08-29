@@ -15,11 +15,16 @@ export class CommentWriteComponent{
   @Output()
   pushComment = new EventEmitter();
 
-  contents: string;
+  contents: string = "";
 
   constructor(private http: Http){}
 
   saveComment(){
+    if(this.contents == ""){
+      alert("댓글을 입력해주세요.");
+      return;
+    }
+
     let urlSearchParmas = new URLSearchParams();
     urlSearchParmas.append("boardId", this.boardId.toString());
     urlSearchParmas.append("contents", this.contents);

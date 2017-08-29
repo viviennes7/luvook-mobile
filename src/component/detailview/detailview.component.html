@@ -10,13 +10,10 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content #content>
   <board [bookBoard]="bookBoard" [isDetail]="true"></board>
   <div class="comment-wrapper">
-    <comment></comment>
-    <comment></comment>
-    <comment></comment>
-    <comment></comment>
+    <comment *ngFor="let item of comments" [comment]="item"></comment>
   </div>
 </ion-content>
-<page-comment-write></page-comment-write>
+<page-comment-write [boardId]="bookBoard.boardId" (pushComment)="reload($event)"></page-comment-write>

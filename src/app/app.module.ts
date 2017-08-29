@@ -1,6 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import {Autosize} from 'angular2-autosize';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -38,11 +37,11 @@ import {BookService} from "../services/book.service";
 import {BoardService} from "../services/board.service";
 import {SettingService} from "../pages/my/setting.service";
 import {CommaPipe} from "../pipes/comma.pipe";
+import {BoardCommentService} from "../services/board-comment.service";
 
 @NgModule({
   declarations: [
     MyApp,
-//    Autosize,
     PostPage,
     MyPage,
     TimelinePage,
@@ -103,6 +102,7 @@ import {CommaPipe} from "../pipes/comma.pipe";
     BookService,
     SettingService,
     BoardService,
+    BoardCommentService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
