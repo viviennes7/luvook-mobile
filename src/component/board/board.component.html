@@ -3,22 +3,22 @@
     <ion-avatar item-start (click)="openHomeModal()" >
       <img src="{{bookBoard.member.profileImg}}">
     </ion-avatar>
+    <ion-buttons class="btn-more">
+      <button ion-button icon-only (click)="presentActionSheet()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
     <h2 (click)="openHomeModal()" >{{bookBoard.member.nickname}}</h2>
     <p>{{bookBoard.regDate}}</p>
-    <img src="{{bookBoard.cover}}" item-end style="height:55px; width:auto;" (click)="openItemModal()"/>
+
   </ion-item>
 
-
-  <!-- (click)="openDetailViewModal()" -->
-  <ion-slides pager (click)="openDetailViewModal()" *ngIf="bookBoard.imgs">
+  <ion-slides> <!--pager-->
     <ion-slide>
-      <img src="assets/sample/book1.jpg">
+      <img src="{{bookBoard.bigCover}}" (click)="openItemModal()">
     </ion-slide>
-    <ion-slide>
-      <img src="assets/sample/book2.jpg">
-    </ion-slide>
-    <ion-slide>
-      <img src="assets/sample/book3.jpg">
+    <ion-slide *ngFor="let item of bookBoard.imgs">
+      <img src="{{item}}">
     </ion-slide>
   </ion-slides>
 

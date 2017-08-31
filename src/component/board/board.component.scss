@@ -41,4 +41,13 @@ board {
     padding-top: 16px !important;
   }
 
+  .btn-more{
+    float: right;
+  }
+
+  .btn-more .button-md{
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.3);
+    box-shadow: none;
+  }
 }

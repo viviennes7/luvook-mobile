@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ModalController, ViewController} from 'ionic-angular';
+import {ModalController, ViewController, ActionSheetController, Platform} from 'ionic-angular';
 
 import {DetailViewComponent} from "../../component/detailview/detailview.component";
 import {MyPage} from "../../pages/my/my";
@@ -7,7 +7,6 @@ import {ItemComponent} from '../../component/item/item.component';
 import {CommentPage} from '../../pages/comment/comment';
 import {BookBoard} from '../../datas/book-board';
 import {BoardService} from "../../services/board.service";
-
 @Component({
   selector: 'board',
   templateUrl: 'board.component.html'
@@ -24,7 +23,9 @@ export class BoardComponent {
 
   constructor(private modalCtrl: ModalController,
               private viewCtrl: ViewController,
-              private boardService: BoardService) {}
+              private boardService: BoardService,
+              private actionSheetCtrl: ActionSheetController,
+              private platform: Platform) {}
 
   ngOnInit() {
     if(this.bookBoard.isClickedHeart){
@@ -63,6 +64,31 @@ export class BoardComponent {
   dismiss() {
     this.viewCtrl.dismiss();
   }
+
+  presentActionSheet() {
+   let actionSheet = this.actionSheetCtrl.create({
+     buttons: [
+       {
+         text: '수정하기',
+         icon: !this.platform.is('ios') ? 'pricetag' : null,
+         handler: () => {
+           console.log('Destructive clicked');
+         }
+       },
+       {
+         text: '삭제하기',
+         icon: !this.platform.is('ios') ? 'trash' : null,
+         handler: () => {
+           console.log('Archive clicked');
+         }
+       },
+     ]
+   });
+
+   actionSheet.present();
+ }
+
+
 
   clickHeart(){
     this.boardService.toggleHeart(this.bookBoard.boardId).subscribe(res =>{
