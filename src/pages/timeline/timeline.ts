@@ -22,6 +22,7 @@ export class TimelinePage {
 
   doRefresh(refresher) {
     this.bookBoards = [];
+    this.isMore = true;
     this.page = 0;
     this.getBookBoards(refresher);
   }
@@ -42,6 +43,9 @@ export class TimelinePage {
 
         if (refresher) {
           refresher.complete();
+        }
+        if(infiniteScroll){
+          infiniteScroll.complete();
         }
       }else{
         alert(result.message);

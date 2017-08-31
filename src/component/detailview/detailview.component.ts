@@ -29,8 +29,6 @@ export class DetailViewComponent {
     this.commentService.getComments(this.bookBoard.boardId)
       .subscribe(res =>{
         let result = res.json();
-        console.log(result.data);
-
         if(result.statusCode == 200){
           result.data.forEach((item, index) => {
             this.comments.push(item);

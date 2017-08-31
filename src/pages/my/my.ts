@@ -61,7 +61,7 @@ export class MyPage {
   }
 
   getBoardsByMember(){
-    this.boardService.getBoardsByMember().subscribe(res => {
+    this.boardService.getBoardsByMember(this.member.memberId).subscribe(res => {
       let result = res.json();
 
       if(result.statusCode == 200){

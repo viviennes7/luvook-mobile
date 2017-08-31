@@ -12,10 +12,10 @@ export class BoardService{
                .get(HttpService.BASE_URL + '/boards/' + page,  {headers:headers});
   }
 
-  getBoardsByMember(){
+  getBoardsByMember(memberId){
     let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
     return this.http
-               .get(HttpService.BASE_URL + "/member/boards", {headers:headers});
+               .get(HttpService.BASE_URL + "/member/" + memberId + "/boards", {headers:headers});
   }
 
   toggleHeart(boardId: number){
@@ -23,6 +23,5 @@ export class BoardService{
     return this.http
                .post(HttpService.BASE_URL + "/board/" + boardId + "/heart", "", { headers:headers });
   }
-
-
+  
 }
