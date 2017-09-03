@@ -23,9 +23,10 @@ export class PostPage {
               private modalCtrl: ModalController,
               private loadingCtrl: LoadingController,
               private bookService: BookService) {
-
-    this.loading = this.loadingCtrl.create();
-    this.getBestseller();
+    this.createLoader();
+    this.loading.present().then(() => {
+      this.getBestseller();
+    });
   }
 
   search(){
@@ -33,11 +34,14 @@ export class PostPage {
       alert("검색어를 입력해주세요.");
       return;
     }
-    
-    this.page = 1;
-    this.books = [];
-    this.getBooks();
-    this.isMore = true;
+
+    this.createLoader();
+    this.loading.present().then(() => {
+      this.page = 1;
+      this.books = [];
+      this.getBooks();
+      this.isMore = true;
+    });
   }
 
   getBooks(infiniteScroll?){
@@ -58,6 +62,7 @@ export class PostPage {
       }
       this.isVisibleNoItem = true;
       this.page++;
+      this.loading.dismiss();
     });
   }
 
@@ -72,7 +77,12 @@ export class PostPage {
 
       this.isMore = false;
       this.isVisibleNoItem = true;
+      this.loading.dismiss();
     })
+  }
+
+  createLoader(){
+    this.loading = this.loadingCtrl.create();
   }
 
   locateContentsPage(book){

@@ -1,8 +1,4 @@
-import { Component } from '@angular/core';
-import { NavController, ModalController, ViewController } from 'ionic-angular';
-
-import {DetailViewComponent} from "../../component/detailview/detailview.component";
-import {MyPage} from "../my/my";
+import {Component} from '@angular/core';
 import {BookBoard} from "../../datas/book-board";
 import {BoardService} from "../../services/board.service";
 
@@ -51,5 +47,9 @@ export class TimelinePage {
         alert(result.message);
       }
     });
+  }
+
+  deleteBoardEvent(index){
+    this.bookBoards.splice(index, 1);
   }
 }

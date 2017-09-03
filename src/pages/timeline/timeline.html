@@ -7,7 +7,11 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <board *ngFor="let bookBoard of bookBoards" [bookBoard]="bookBoard"></board>
+
+  <board *ngFor="let bookBoard of bookBoards;let i = index"
+         [bookBoard]="bookBoard"
+         (deleteBoardEvent)="deleteBoardEvent(i)"></board>
+
   <ion-infinite-scroll *ngIf="isMore == true" (ionInfinite)="getBookBoards(null, $event);" >
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
