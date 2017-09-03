@@ -37,6 +37,10 @@ export class CommentPage {
         });
   }
 
+  deleteComment(index){
+    this.comments.splice(index, 1);
+  }
+
   reload(comment){
     this.comments.push(comment);
 

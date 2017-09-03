@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ModalController, ViewController, ActionSheetController, Platform} from 'ionic-angular';
 
 import {DetailViewComponent} from "../../component/detailview/detailview.component";
@@ -7,22 +7,26 @@ import {ItemComponent} from '../../component/item/item.component';
 import {CommentPage} from '../../pages/comment/comment';
 import {BookBoard} from '../../datas/book-board';
 import {BoardService} from "../../services/board.service";
+import {MemberService} from "../../services/member.service";
 @Component({
   selector: 'board',
   templateUrl: 'board.component.html'
 })
 export class BoardComponent {
-
   @Input()
   isDetail: boolean;
 
   @Input()
   bookBoard: BookBoard;
 
+  @Output()
+  deleteBoardEvent = new EventEmitter();
+
   private heartShape : string = 'heart-outline';
 
   constructor(private modalCtrl: ModalController,
               private viewCtrl: ViewController,
+              private memberService: MemberService,
               private boardService: BoardService,
               private actionSheetCtrl: ActionSheetController,
               private platform: Platform) {}
@@ -65,6 +69,18 @@ export class BoardComponent {
     this.viewCtrl.dismiss();
   }
 
+  deleteBoard(){
+    this.boardService.deleteBoard(this.bookBoard.boardId).subscribe(res =>{
+      let result = res.json();
+
+      if(result.statusCode == 200){
+        this.deleteBoardEvent.emit();
+      }else{
+        alert(result.message);
+      }
+    });
+  }
+
   presentActionSheet() {
    let actionSheet = this.actionSheetCtrl.create({
      buttons: [
@@ -79,7 +95,10 @@ export class BoardComponent {
          text: '삭제하기',
          icon: !this.platform.is('ios') ? 'trash' : null,
          handler: () => {
-           console.log('Archive clicked');
+           var isRemove = confirm("삭제하시겠습니까?");
+           if(isRemove){
+             this.deleteBoard();
+           }
          }
        },
      ]

@@ -7,7 +7,7 @@
 </ion-header>
 <ion-content #content>
   <div class="comment-wrapper">
-    <comment *ngFor="let item of comments" [comment]="item"></comment>
+    <comment *ngFor="let item of comments; let i=index;" [comment]="item" (deleteCommentEvent)="deleteComment(i)"></comment>
   </div>
 </ion-content>
 <page-comment-write [boardId]="boardId" (pushComment)="reload($event)"></page-comment-write>

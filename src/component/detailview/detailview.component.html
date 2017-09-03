@@ -13,7 +13,9 @@
 <ion-content #content>
   <board [bookBoard]="bookBoard" [isDetail]="true"></board>
   <div class="comment-wrapper">
-    <comment *ngFor="let item of comments" [comment]="item"></comment>
+    <comment *ngFor="let item of comments;let i=index"
+             [comment]="item"
+             (deleteCommentEvent)="deleteComment(i)"></comment>
   </div>
 </ion-content>
 <page-comment-write [boardId]="bookBoard.boardId" (pushComment)="reload($event)"></page-comment-write>
