@@ -28,19 +28,20 @@ export class MyPage {
               private params: NavParams,
               private jwtService: JwtService,
               private memberService: MemberService,
-              private settingService: SettingService,
               private boardService: BoardService,
               private photoViewerUtil: PhotoViewerUtil) {
-    let isMe = params.get("isMe");
+    this.initialize();
+  }
+
+  initialize(){
+    let isMe = this.params.get("isMe");
     isMe === undefined ? this.isMe = true : this.isMe = false;
-    this.settingService.initializeMyPage();
 
-    let member = params.get("member");
-
+    let member = this.params.get("member");
     if(member){
       this.member = member;
     }else{
-      this.member = memberService.myInfo;
+      this.member = this.memberService.myInfo;
     }
 
     this.getBoardsByMember();

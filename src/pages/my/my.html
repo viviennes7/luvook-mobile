@@ -32,7 +32,7 @@
   </ion-item>
   <hr/>
   <ion-row *ngFor="let row of bookBoards">
-    <ion-thumbnail *ngFor="let item of row" col-3 (click)="openDetailViewModal(item)" >
+    <ion-thumbnail *ngFor="let item of row" col-3 (click)="openDetailViewModal(item)">
       <img src="{{item.cover}}">
     </ion-thumbnail>
   </ion-row>

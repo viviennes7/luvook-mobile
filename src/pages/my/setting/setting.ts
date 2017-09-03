@@ -35,7 +35,6 @@ export class SettingPage {
       return;
     }
 
-
     let urlSearchParams = new URLSearchParams();
     urlSearchParams.append('nickname', this.member.nickname);
     urlSearchParams.append('password', this.password);
@@ -48,7 +47,6 @@ export class SettingPage {
           let result = res.json();
           if(result.statusCode == 200){
             this.memberService.myInfo.nickname = this.member.nickname;
-            this.settingService.initializeMyPage();
             this.viewCtrl.dismiss();
           }else{
             alert(result.message);
