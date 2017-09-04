@@ -16,14 +16,16 @@
 
   </ion-item>
 
-  <ion-slides> <!--pager-->
+  <!-- <ion-slides pager>
     <ion-slide>
       <img src="{{bookBoard.bigCover}}" (click)="openItemModal()">
     </ion-slide>
     <ion-slide *ngFor="let item of bookBoard.imgs">
       <img src="{{item}}">
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
+
+  <img src="{{bookBoard.bigCover}}" (click)="openItemModal()">
 
   <ion-card-content (click)="openDetailViewModal()" >
     <p>{{bookBoard.contents}}</p>

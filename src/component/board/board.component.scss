@@ -7,6 +7,11 @@ board {
     box-shadow : none;
   }
 
+  ion-card img{
+    width: auto;
+    margin: auto;  
+  }
+
   .card-bottom-col {
     text-align: center;
   }
