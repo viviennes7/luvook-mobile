@@ -1,7 +1,10 @@
 <ion-footer>
   <ion-toolbar>
     <ion-item no-lines no-padding>
-      <textarea placeholder="contents..." rows="1" [(ngModel)]="contents">
+      <textarea autosize
+                class="autosize"
+                placeholder="contents..."
+                rows="1" [(ngModel)]="contents">
       </textarea>
       <button ion-button clear item-end default class="btn-write" (click)="saveComment()">
         <ion-icon ios="ios-paper-plane-outline" md="md-paper-plane"></ion-icon>

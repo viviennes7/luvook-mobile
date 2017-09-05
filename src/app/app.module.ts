@@ -38,6 +38,7 @@ import {BoardService} from "../services/board.service";
 import {SettingService} from "../pages/my/setting.service";
 import {CommaPipe} from "../pipes/comma.pipe";
 import {BoardCommentService} from "../services/board-comment.service";
+import {AutosizeModule} from "angular2-autosize";
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import {BoardCommentService} from "../services/board-comment.service";
     HttpModule,
     BrowserModule,
     FormsModule,
+    AutosizeModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
