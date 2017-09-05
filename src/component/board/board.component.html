@@ -28,7 +28,7 @@
   <img src="{{bookBoard.bigCover}}" (click)="openItemModal()">
 
   <ion-card-content (click)="openDetailViewModal()" >
-    <p>{{bookBoard.contents}}</p>
+    <p innerHTML = {{bookBoard.contents}}></p>
   </ion-card-content>
 
   <ion-row>

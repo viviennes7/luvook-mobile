@@ -88,7 +88,7 @@ export class BoardComponent {
          text: '수정하기',
          icon: !this.platform.is('ios') ? 'pricetag' : null,
          handler: () => {
-           console.log('Destructive clicked');
+           alert("준비중입니다.");
          }
        },
        {
