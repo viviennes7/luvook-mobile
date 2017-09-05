@@ -33,6 +33,11 @@ export class MyPage {
     this.initialize();
   }
 
+  doRefresh(refresher) {
+    this.bookBoards = [];
+    this.getBoardsByMember(refresher);
+  }
+
   initialize(){
     let isMe = this.params.get("isMe");
     isMe === undefined ? this.isMe = true : this.isMe = false;
@@ -45,6 +50,7 @@ export class MyPage {
     }
 
     this.getBoardsByMember();
+
   }
 
   openSettingModal() {
@@ -61,7 +67,7 @@ export class MyPage {
     this.photoViewerUtil.openPhotoViewer(this.member.profileImg);
   }
 
-  getBoardsByMember(){
+  getBoardsByMember(refresher?){
     this.boardService.getBoardsByMember(this.member.memberId).subscribe(res => {
       let result = res.json();
 
@@ -85,6 +91,9 @@ export class MyPage {
             }
           }
           this.bookBoards[i] = rowAry;
+        }
+        if(refresher){
+          refresher.complete();
         }
       }else{
         alert(result.message);
