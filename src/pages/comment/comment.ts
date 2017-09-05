@@ -1,8 +1,6 @@
-import {Component, Input, ViewChild} from '@angular/core';
-import {Content, NavController, NavParams} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {Content, NavParams, ViewController} from 'ionic-angular';
 import {BoardComment} from "../../datas/board-comment";
-import {HttpService} from "../../services/http.service";
-import {Http, Headers} from "@angular/http";
 import {BoardCommentService} from "../../services/board-comment.service";
 
 @Component({
@@ -16,9 +14,9 @@ export class CommentPage {
   boardId: number;
   comments: Array<BoardComment> = [];
 
-  constructor(private http: Http,
-              private params: NavParams,
-              private commentService: BoardCommentService) {
+  constructor(private params: NavParams,
+              private commentService: BoardCommentService,
+              private viewCtrl: ViewController) {
     this.boardId = params.get("boardId");
     this.getComments();
   }
@@ -43,9 +41,11 @@ export class CommentPage {
 
   reload(comment){
     this.comments.push(comment);
-
-    //todo: 댓글 달고난뒤에 내릴것!
+    //TODO: 댓글 달고난뒤에 내릴것!
     this.content.scrollToBottom();
   }
 
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 }

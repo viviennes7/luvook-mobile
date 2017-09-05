@@ -9,7 +9,7 @@ board {
 
   ion-card img{
     width: auto;
-    margin: auto;  
+    margin: auto;
   }
 
   .card-bottom-col {
@@ -50,7 +50,8 @@ board {
     float: right;
   }
 
-  .btn-more .button-md{
+  .btn-more .button-md,
+  .btn-more .button-ios{
     background-color: #fff;
     color: rgba(0, 0, 0, 0.3);
     box-shadow: none;

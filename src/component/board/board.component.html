@@ -15,19 +15,10 @@
     <p>{{bookBoard.regDate}}</p>
 
   </ion-item>
-
-  <!-- <ion-slides pager>
-    <ion-slide>
-      <img src="{{bookBoard.bigCover}}" (click)="openItemModal()">
-    </ion-slide>
-    <ion-slide *ngFor="let item of bookBoard.imgs">
-      <img src="{{item}}">
-    </ion-slide>
-  </ion-slides> -->
-
   <img src="{{bookBoard.bigCover}}" (click)="openItemModal()">
 
-  <ion-card-content (click)="openDetailViewModal()" >
+  <!--(click)="openDetailViewModal()"-->
+  <ion-card-content>
     <p innerHTML = {{bookBoard.contents}}></p>
   </ion-card-content>
 
