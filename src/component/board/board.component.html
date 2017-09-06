@@ -1,7 +1,7 @@
 <ion-card>
   <ion-item>
     <ion-avatar item-start (click)="openHomeModal()" >
-      <img src="{{bookBoard.member.profileImg}}">
+      <img [src]="this.bookBoard.member.profileImg">
     </ion-avatar>
     <ion-buttons
       class="btn-more"

@@ -23,7 +23,7 @@ export class SettingPage {
               private http: Http,
               private memberService: MemberService,
               private settingService: SettingService) {
-    this.member.setProfileImg(this.memberService.myInfo.getProfileImg());
+    //this.member.setProfileImg(this.memberService.myInfo.getProfileImg());
     this.member.email = this.memberService.myInfo.email;
     this.member.nickname = this.memberService.myInfo.nickname;
 
@@ -52,7 +52,22 @@ export class SettingPage {
             alert(result.message);
           }
         });
+  }
 
+  updateProfileImg(encodeImg){
+    let params = {'encodeImg' : encodeImg};
+    let headers = new Headers({'Content-Type':'application/json',"Authorization":HttpService.AUTH});
+
+    this.http
+        .post(HttpService.BASE_URL + "/member/info/img", JSON.stringify(params), { headers: headers})
+        .subscribe(res =>{
+          let result = res.json();
+          if(result.statusCode == 200){
+
+          }else{
+            alert(result.message);
+          }
+        });
   }
 
   accessGallery() {
@@ -62,7 +77,8 @@ export class SettingPage {
       encodingType: this.camera.EncodingType.JPEG,
       quality: 100
     }).then((imageData) => {
-      this.member.setProfileImg('data:image/jpeg;base64,' + imageData);
+      // this.member.setProfileImg('data:image/jpeg;base64,' + imageData);
+      this.updateProfileImg('data:image/jpeg;base64,' + imageData);
     }, (err) => {
       console.log(err);
     });
