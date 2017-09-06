@@ -64,7 +64,7 @@ export class MyPage {
   }
 
   openPhotoViewer(){
-    this.photoViewerUtil.openPhotoViewer(this.member.profileImg);
+    this.photoViewerUtil.openPhotoViewer(this.member.getProfileImg());
   }
 
   getBoardsByMember(refresher?){

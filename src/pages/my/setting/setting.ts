@@ -23,7 +23,7 @@ export class SettingPage {
               private http: Http,
               private memberService: MemberService,
               private settingService: SettingService) {
-    this.member.profileImg = this.memberService.myInfo.profileImg;
+    this.member.setProfileImg(this.memberService.myInfo.getProfileImg());
     this.member.email = this.memberService.myInfo.email;
     this.member.nickname = this.memberService.myInfo.nickname;
 
@@ -58,9 +58,11 @@ export class SettingPage {
   accessGallery() {
     this.camera.getPicture({
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-      destinationType: this.camera.DestinationType.DATA_URL
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      quality: 100
     }).then((imageData) => {
-      this.member.profileImg = 'data:image/jpeg;base64,' + imageData;
+      this.member.setProfileImg('data:image/jpeg;base64,' + imageData);
     }, (err) => {
       console.log(err);
     });
