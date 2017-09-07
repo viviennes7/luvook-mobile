@@ -23,7 +23,7 @@ export class SettingPage {
               private http: Http,
               private memberService: MemberService,
               private settingService: SettingService) {
-    //this.member.setProfileImg(this.memberService.myInfo.getProfileImg());
+    this.member.profileImg = this.memberService.myInfo.profileImg;
     this.member.email = this.memberService.myInfo.email;
     this.member.nickname = this.memberService.myInfo.nickname;
 

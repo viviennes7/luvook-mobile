@@ -10,7 +10,7 @@ export class SettingService{
   constructor(private memberService: MemberService){}
 
   initializeMyPage(){
-    this.profileImg = this.memberService.myInfo.getProfileImg();
+    this.profileImg = this.memberService.myInfo.profileImg;
     this.nickname = this.memberService.myInfo.nickname;
   }
 }

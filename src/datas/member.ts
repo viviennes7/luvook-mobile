@@ -9,11 +9,4 @@ export class Member {
   regDate :string;
   modDate :string;
 
-  public getProfileImg(){
-    return HttpService.AUTH + this.profileImg;
-  }
-
-  public setProfileImg(profileImg){
-    this.profileImg = profileImg;
-  }
 }
