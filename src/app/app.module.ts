@@ -22,6 +22,7 @@ import { CommentWriteComponent } from "../component/comment/comment-write.compon
 import { ImagePickerPage } from "../pages/image-picker/image-picker";
 import { PhotoViewerUtil } from "../utils/photo-viewer";
 
+import { File } from '@ionic-native/file';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
@@ -95,6 +96,7 @@ import {AutosizeModule} from "angular2-autosize";
     StatusBar,
     SplashScreen,
     Camera,
+    File,
     ImagePicker,
     PhotoViewer,
     PhotoViewerUtil,
