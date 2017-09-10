@@ -31,7 +31,7 @@
   <ng-container *ngIf="this.selectedImgUris != null">
     <ion-row *ngFor="let row of selectedImgUris;">
       <ng-container *ngFor="let src of row">
-        <ion-thumbnail col-3 (click)="this.photoViewerUtil.openPhotoViewer(src)">
+        <ion-thumbnail col-3 (click)="photoViewerUtil.openPhotoViewer(src)">
           <img src="{{src}}"/>
         </ion-thumbnail>
       </ng-container>

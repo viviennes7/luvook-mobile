@@ -12,6 +12,7 @@ import {SettingService} from './setting.service';
 import {Member} from "../../datas/member";
 import {BookBoard} from "../../datas/book-board";
 import {BoardService} from "../../services/board.service";
+import {PhotoViewer} from "@ionic-native/photo-viewer";
 
 @Component({
   selector: 'page-my',
@@ -29,7 +30,7 @@ export class MyPage {
               private jwtService: JwtService,
               private memberService: MemberService,
               private boardService: BoardService,
-              private photoViewerUtil: PhotoViewerUtil) {
+              public photoViewer: PhotoViewer) {
     this.initialize();
   }
 
@@ -64,7 +65,10 @@ export class MyPage {
   }
 
   openPhotoViewer(){
-    this.photoViewerUtil.openPhotoViewer(this.member.profileImg);
+    alert("열기 : " + this.member.profileImg);
+    this.photoViewer.show(this.member.profileImg);
+    // this.photoViewerUtil.openPhotoViewer("http://image.aladin.co.kr/product/11380/17/coversum/8936474391_2.jpg");
+    // this.photoViewerUtil.openPhotoViewer(this.member.profileImg);
   }
 
   getBoardsByMember(refresher?){

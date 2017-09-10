@@ -60,8 +60,8 @@ export class SettingPage {
       encodingType: this.camera.EncodingType.JPEG,
       quality: 100,
       allowEdit:true,
-      targetWidth: 600,
-      targetHeight: 600
+      targetWidth: 800,
+      targetHeight: 800
     }).then((imageData) => {
       this.loading = this.loadingCtrl.create({
         content: 'Uploading...'

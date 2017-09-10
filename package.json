@@ -71,12 +71,12 @@
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
             "cordova-plugin-camera": {},
-            "com-sarriaroman-photoviewer": {},
             "com.synconset.imagepicker": {},
             "cordova-sqlite-storage": {},
             "cordova-plugin-file": {},
             "cordova-plugin-filepath": {},
-            "cordova-plugin-file-transfer": {}
+            "cordova-plugin-file-transfer": {},
+            "com-sarriaroman-photoviewer": {}
         },
         "platforms": [
             "android"
