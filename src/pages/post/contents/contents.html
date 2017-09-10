@@ -27,7 +27,7 @@
       </button>
     </span>
   </ion-item>
-  <button ion-button (click)="openGallery()">이미지 업로드</button>
+  <!--<button ion-button (click)="openGallery()">이미지 업로드</button>-->
   <ng-container *ngIf="this.selectedImgUris != null">
     <ion-row *ngFor="let row of selectedImgUris;">
       <ng-container *ngFor="let src of row">
