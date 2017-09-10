@@ -12,8 +12,8 @@
 </ion-header>
 <ion-content>
   <div padding>
-    <ion-avatar class="setting-avatar" (click)="takePhoto()">
-      <img src="{{member.profileImg}}">
+    <ion-avatar class="setting-avatar" (click)="selectPhoto()">
+      <img [src]="member.profileImg">
     </ion-avatar>
     <ion-item>
       <ion-input type="text" placeholder="Nickname" [(ngModel)]="member.nickname"></ion-input>
