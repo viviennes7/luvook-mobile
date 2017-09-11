@@ -46,7 +46,7 @@ export class SettingPage {
           let result = res.json();
           if(result.statusCode == 200){
             this.memberService.myInfo.nickname = this.member.nickname;
-            this.viewCtrl.dismiss();
+            this.dismiss();
           }else{
             alert(result.message);
           }
@@ -91,6 +91,10 @@ export class SettingPage {
           alert(result.message);
         }
       });
+  }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
 }
