@@ -22,6 +22,7 @@ export class MyPage {
   isMe:boolean = true;
   member:Member;
   bookBoards = [];
+  boardCount = 0;
 
   constructor(private modalCtrl: ModalController,
               private alertCtrl: AlertController,
@@ -51,7 +52,6 @@ export class MyPage {
     }
 
     this.getBoardsByMember();
-
   }
 
   openSettingModal() {
@@ -77,6 +77,7 @@ export class MyPage {
 
       if(result.statusCode == 200){
         let dataLength = result.data.length;
+        this.boardCount = dataLength;
         let rowCount = 0;
         if(dataLength % 4 == 0){
           rowCount = dataLength/4;
@@ -111,16 +112,16 @@ export class MyPage {
       title: "로그아웃하시겠습니까?",
       buttons: [
         {
+          text:'No',
+          handler: () =>{
+            console.log("No");
+          }
+        },
+        {
           text: 'Yes',
           handler: () =>{
             this.jwtService.set(null);
             this.appCtrl.getRootNav().setRoot(LoginPage);
-          }
-        },
-        {
-          text:'No',
-          handler: () =>{
-            console.log("No");
           }
         }
       ]
