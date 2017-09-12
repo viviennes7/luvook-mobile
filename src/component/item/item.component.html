@@ -5,8 +5,6 @@
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <!--<span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>-->
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-buttons>
@@ -15,7 +13,7 @@
 
 <ion-content padding>
   <div>
-    <img src="{{book.cover}}" (click)="this.photoViewerUtil.openPhotoViewer(book.cover)" class="book-cover" (load)="loading.dismiss()"><br />
+    <img src="{{book.cover}}" class="book-cover" (load)="loading.dismiss()"><br />
     <div class="book-shortcut-wrapper">
       <strong>{{book.title}}</strong> ({{book.pubDate}})<br /><br />
       <div>{{book.author}}</div><br />

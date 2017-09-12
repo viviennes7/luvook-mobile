@@ -16,7 +16,6 @@ export class ItemComponent {
   private loading: Loading;
 
   constructor(private viewCtrl: ViewController,
-              private photoViewerUtil: PhotoViewerUtil,
               private params: NavParams,
               private loadingCtrl: LoadingController,
               private bookService: BookService) {
@@ -34,7 +33,6 @@ export class ItemComponent {
       this.book = result;
     });
   }
-
 
   dismiss(){
     this.viewCtrl.dismiss();
