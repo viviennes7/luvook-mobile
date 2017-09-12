@@ -23,6 +23,7 @@ export class MyPage {
   member:Member;
   bookBoards = [];
   boardCount = 0;
+  heartCount = 0;
 
   constructor(private modalCtrl: ModalController,
               private alertCtrl: AlertController,
@@ -32,15 +33,6 @@ export class MyPage {
               private memberService: MemberService,
               private boardService: BoardService,
               public photoViewer: PhotoViewer) {
-    this.initialize();
-  }
-
-  doRefresh(refresher) {
-    this.bookBoards = [];
-    this.getBoardsByMember(refresher);
-  }
-
-  initialize(){
     let isMe = this.params.get("isMe");
     isMe === undefined ? this.isMe = true : this.isMe = false;
 
@@ -50,8 +42,17 @@ export class MyPage {
     }else{
       this.member = this.memberService.myInfo;
     }
+    this.initialize();
+  }
 
-    this.getBoardsByMember();
+  doRefresh(refresher) {
+    this.bookBoards = [];
+    this.initialize(refresher);
+  }
+
+  initialize(refresher?){
+    this.getReceivedHeartCount();
+    this.getBoardsByMember(refresher);
   }
 
   openSettingModal() {
@@ -65,10 +66,19 @@ export class MyPage {
   }
 
   openPhotoViewer(){
-    alert("열기 : " + this.member.profileImg);
     this.photoViewer.show(this.member.profileImg);
-    // this.photoViewerUtil.openPhotoViewer("http://image.aladin.co.kr/product/11380/17/coversum/8936474391_2.jpg");
-    // this.photoViewerUtil.openPhotoViewer(this.member.profileImg);
+  }
+
+  getReceivedHeartCount(){
+    this.boardService.getReceivedHeartCount().subscribe(res => {
+      let result = res.json();
+
+      if(result.statusCode == 200){
+        this.heartCount = result.totalCount;
+      }else{
+        alert(result.message);
+      }
+    })
   }
 
   getBoardsByMember(refresher?){
