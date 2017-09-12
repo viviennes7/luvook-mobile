@@ -84,8 +84,8 @@ export class SettingPage {
       .subscribe(res =>{
         let result = res.json();
         if(result.statusCode == 200){
-          this.memberService.myInfo.profileImg = encodeImg;
-          this.member.profileImg = encodeImg;
+          this.memberService.myInfo.profileImg = result.data;
+          this.member.profileImg = result.data;
           this.loading.dismiss();
         }else{
           alert(result.message);
