@@ -5,4 +5,16 @@ page-setting {
     border-radius: 50%;
     margin: auto;
   }
+
+  ion-avatar{
+    height: 120px;
+  }
+
+  #icon-plus{
+    width: 30px;
+    height: auto;
+    position: relative;
+    bottom: 28px;
+    left: 30px;
+  }
 }
