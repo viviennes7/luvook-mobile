@@ -71,7 +71,7 @@ export class SettingPage {
       let base64Image = 'data:image/jpeg;base64,' + imageData;
       this.uploadPhoto(base64Image);
     }, (err) => {
-      alert(JSON.stringify(err));
+      // alert(JSON.stringify(err));
     });
   }
 
