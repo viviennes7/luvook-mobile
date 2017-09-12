@@ -5,26 +5,20 @@
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <!--<span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>-->
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <div padding>
-    <ion-list>
+<ion-content padding>
       <ion-item>
         <ion-input type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item id="item-confirm">
         <ion-input type="password" placeholder="Confirm" [(ngModel)]="confirm"></ion-input>
       </ion-item>
-    </ion-list>
     <button ion-button color="blue" block (click)="join()">Signin</button>
-  </div>
 </ion-content>
