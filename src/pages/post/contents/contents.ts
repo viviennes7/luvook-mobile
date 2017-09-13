@@ -1,6 +1,6 @@
 import { Component, ElementRef, Renderer } from '@angular/core';
 import {Http, RequestOptions, Headers} from "@angular/http";
-import { NavController, ModalController, NavParams } from 'ionic-angular';
+import { NavController, ModalController, NavParams, ViewController } from 'ionic-angular';
 import{ ImagePicker } from '@ionic-native/image-picker';
 import{ PostPage } from '../post';
 import{ ImagePickerPage } from '../../image-picker/image-picker';
@@ -8,6 +8,7 @@ import{ ImagePickerPage } from '../../image-picker/image-picker';
 import {Book} from '../../../datas/book';
 import {BookBoard} from '../../../datas/book-board';
 import {HttpService} from '../../../services/http.service';
+import {TimelineService} from '../../../services/timeline.service';
 import { PhotoViewerUtil } from '../../../utils/photo-viewer';
 
 @Component({
@@ -28,7 +29,9 @@ export class PostContentsPage {
               private imagePicker: ImagePicker,
               private photoViewerUtil: PhotoViewerUtil,
               private params: NavParams,
-              private http: Http) {
+              private http: Http,
+              private timelineService: TimelineService,
+              private viewCtrl: ViewController) {
     this.book = params.get("book");
     this.initStar();
   }
@@ -57,7 +60,8 @@ export class PostContentsPage {
         .subscribe(res =>{
           let result = res.json();
           if(result.statusCode == 200){
-            this.navCtrl.setRoot(PostPage);
+            this.timelineService.bookBoards.unshift(result.data);
+            this.viewCtrl.dismiss();
           }else{
             alert(result.message);
           }

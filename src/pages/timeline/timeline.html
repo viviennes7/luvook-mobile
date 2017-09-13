@@ -8,7 +8,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <board *ngFor="let bookBoard of bookBoards;let i = index"
+  <board *ngFor="let bookBoard of timelineService.bookBoards;let i = index"
          [bookBoard]="bookBoard"
          (deleteBoardEvent)="deleteBoardEvent(i)"></board>
 

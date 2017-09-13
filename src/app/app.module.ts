@@ -34,6 +34,7 @@ import {LoginService} from "../pages/login/login.service";
 import {MemberService} from "../services/member.service";
 import {BookService} from "../services/book.service";
 import {BoardService} from "../services/board.service";
+import {TimelineService} from "../services/timeline.service";
 import {SettingService} from "../pages/my/setting.service";
 import {CommaPipe} from "../pipes/comma.pipe";
 import {BoardCommentService} from "../services/board-comment.service";
@@ -100,6 +101,7 @@ import {AutosizeModule} from "angular2-autosize";
     JwtService,
     LoginService,
     MemberService,
+    TimelineService,
     BookService,
     SettingService,
     BoardService,
