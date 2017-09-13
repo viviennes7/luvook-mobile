@@ -24,7 +24,6 @@ export class ItemComponent {
     this.getBook();
     this.loading = this.loadingCtrl.create();
     this.loading.present();
-
   }
 
   private getBook(){
@@ -32,6 +31,17 @@ export class ItemComponent {
       let result = res.json();
       this.book = result;
     });
+  }
+
+  getDescription(){
+    let description = this.book.description;
+    if(!this.book.description){
+      return
+    }else{
+      description = description.replace(/&lt;/g, "<");
+      description = description.replace(/&gt;/g, ">");
+      return description;
+    }
   }
 
   dismiss(){
