@@ -130,8 +130,7 @@ export class MyPage {
         {
           text: 'Yes',
           handler: () =>{
-            this.jwtService.set(null);
-            this.appCtrl.getRootNav().setRoot(LoginPage);
+            this.memberService.logout();
           }
         }
       ]
