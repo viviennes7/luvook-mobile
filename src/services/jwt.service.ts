@@ -13,8 +13,6 @@ export class JwtService{
     this.storage.set("jwt", jwt);
   }
 
-  //this.jwtService.get().subscribe(data => alert("RX ::: " + data));
-
   get(){
     return Observable.fromPromise(
       this.storage.get("jwt").then(val => {

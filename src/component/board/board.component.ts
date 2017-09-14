@@ -75,6 +75,9 @@ export class BoardComponent {
 
       if(result.statusCode == 200){
         this.deleteBoardEvent.emit();
+      }else if(result.statusCode == 401){
+        alert(result.message);
+        this.memberService.logout();
       }else{
         alert(result.message);
       }
@@ -122,6 +125,9 @@ export class BoardComponent {
           this.heartShape = 'heart';
           this.bookBoard.heartCount++;
         }
+      }else if(result.statusCode == 401){
+        alert(result.message);
+        this.memberService.logout();
       }else{
         alert(result.message);
       }

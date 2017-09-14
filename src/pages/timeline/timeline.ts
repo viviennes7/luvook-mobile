@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {BookBoard} from "../../datas/book-board";
 import {BoardService} from "../../services/board.service";
 import {TimelineService} from "../../services/timeline.service";
+import {MemberService} from "../../services/member.service";
+
 @Component({
   selector: 'page-timeline',
   templateUrl: 'timeline.html'
@@ -11,7 +13,8 @@ export class TimelinePage {
   private isMore: boolean = true;
 
   constructor(private boardService: BoardService,
-              private timelineService: TimelineService) {
+              private timelineService: TimelineService,
+              private memberService: MemberService) {
     this.getBookBoards();
   }
 
@@ -42,6 +45,9 @@ export class TimelinePage {
         if(infiniteScroll){
           infiniteScroll.complete();
         }
+      }else if(result.statusCode == 401){
+        alert(result.message);
+        this.memberService.logout();
       }else{
         alert(result.message);
       }

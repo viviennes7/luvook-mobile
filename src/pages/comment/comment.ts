@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Content, NavParams, ViewController} from 'ionic-angular';
 import {BoardComment} from "../../datas/board-comment";
 import {BoardCommentService} from "../../services/board-comment.service";
+import {MemberService} from "../../services/member.service";
 
 @Component({
   selector: 'page-comment',
@@ -16,6 +17,7 @@ export class CommentPage {
 
   constructor(private params: NavParams,
               private commentService: BoardCommentService,
+              private memberService: MemberService,
               private viewCtrl: ViewController) {
     this.boardId = params.get("boardId");
     this.getComments();
@@ -29,6 +31,9 @@ export class CommentPage {
             result.data.forEach((item, index) => {
               this.comments.push(item);
             });
+          }else if(result.statusCode == 401){
+            alert(result.message);
+            this.memberService.logout();
           }else{
             alert(result.message);
           }

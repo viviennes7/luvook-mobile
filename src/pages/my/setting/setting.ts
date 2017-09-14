@@ -47,6 +47,9 @@ export class SettingPage {
           if(result.statusCode == 200){
             this.memberService.myInfo.nickname = this.member.nickname;
             this.dismiss();
+          }else if(result.statusCode == 401){
+            alert(result.message);
+            this.memberService.logout();
           }else{
             alert(result.message);
           }
@@ -87,6 +90,9 @@ export class SettingPage {
           this.memberService.myInfo.profileImg = result.data;
           this.member.profileImg = result.data;
           this.loading.dismiss();
+        }else if(result.statusCode == 401){
+          alert(result.message);
+          this.memberService.logout();
         }else{
           alert(result.message);
         }

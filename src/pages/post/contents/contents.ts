@@ -9,6 +9,7 @@ import {Book} from '../../../datas/book';
 import {BookBoard} from '../../../datas/book-board';
 import {HttpService} from '../../../services/http.service';
 import {TimelineService} from '../../../services/timeline.service';
+import {MemberService} from '../../../services/member.service';
 import { PhotoViewerUtil } from '../../../utils/photo-viewer';
 
 @Component({
@@ -31,6 +32,7 @@ export class PostContentsPage {
               private params: NavParams,
               private http: Http,
               private timelineService: TimelineService,
+              private memberService: MemberService,
               private viewCtrl: ViewController) {
     this.book = params.get("book");
     this.initStar();
@@ -62,6 +64,9 @@ export class PostContentsPage {
           if(result.statusCode == 200){
             this.timelineService.bookBoards.unshift(result.data);
             this.viewCtrl.dismiss();
+          }else if(result.statusCode == 401){
+            alert(result.message);
+            this.memberService.logout();
           }else{
             alert(result.message);
           }

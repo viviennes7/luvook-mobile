@@ -37,6 +37,9 @@ export class CommentComponent{
 
         if(result.statusCode == 200){
           this.deleteCommentEvent.emit();
+        }else if(result.statusCode == 401){
+          alert(result.message);
+          this.memberService.logout();
         }else{
           alert(result.message);
         }

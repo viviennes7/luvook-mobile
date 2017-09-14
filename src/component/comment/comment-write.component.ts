@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {HttpService} from "../../services/http.service";
+import {MemberService} from "../../services/member.service";
 import {Http, Headers} from "@angular/http";
 import {BoardComment} from "../../datas/board-comment";
 
@@ -17,7 +18,8 @@ export class CommentWriteComponent{
 
   contents: string = "";
 
-  constructor(private http: Http){}
+  constructor(private http: Http,
+              private memberService: MemberService){}
 
   saveComment(){
     if(this.contents == ""){
@@ -39,6 +41,9 @@ export class CommentWriteComponent{
             let comment = result.data;
             this.contents = "";
             this.pushComment.emit(comment);
+          }else if(result.statusCode == 401){
+            alert(result.message);
+            this.memberService.logout();
           }else{
             alert(result.message);
           }

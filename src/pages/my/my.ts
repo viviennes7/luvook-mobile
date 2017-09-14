@@ -75,6 +75,9 @@ export class MyPage {
 
       if(result.statusCode == 200){
         this.heartCount = result.totalCount;
+      }else if(result.statusCode == 401){
+        alert(result.message);
+        this.memberService.logout();
       }else{
         alert(result.message);
       }
@@ -110,6 +113,9 @@ export class MyPage {
         if(refresher){
           refresher.complete();
         }
+      }else if(result.statusCode == 401){
+        alert(result.message);
+        this.memberService.logout();
       }else{
         alert(result.message);
       }
