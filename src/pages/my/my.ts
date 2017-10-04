@@ -70,7 +70,7 @@ export class MyPage {
   }
 
   getReceivedHeartCount(){
-    this.boardService.getReceivedHeartCount().subscribe(res => {
+    this.boardService.getReceivedHeartCount(this.member.memberId).subscribe(res => {
       let result = res.json();
 
       if(result.statusCode == 200){

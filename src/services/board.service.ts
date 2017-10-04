@@ -30,9 +30,9 @@ export class BoardService{
                .post(HttpService.BASE_URL + "/board/" + boardId + "/heart", "", { headers:headers });
   }
 
-  getReceivedHeartCount(){
+  getReceivedHeartCount(memberId: number){
     let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',"Authorization":HttpService.AUTH});
     return this.http
-               .get(HttpService.BASE_URL + "/member/heart/count", { headers:headers });
+               .get(HttpService.BASE_URL + "/member/"+memberId+"/heart/count", { headers:headers });
   }
 }
